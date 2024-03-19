@@ -1,0 +1,26 @@
+{% extends 'crmusernav.html' %}
+{% block content %}
+{% load static %}
+<main  style="min-height: 100vh;padding-top: 3%;">
+   
+    <div class="container ">
+        <h1 class="text-center text-info">Archive</h1>
+    <hr style="border-color: green; ">
+    <div class="row mt-3" style="padding-top: 5%;">
+        {% for i in arch %}
+    <div class="col-sm-4 mb-3">
+      <div class="card" style="border-top: 5px solid red;">
+          <div class="card-body">
+              <h1 class="card-title text-info">{{i.app.name}}</h1>
+              <hr style="border-color: green; margin: 0 auto 0 0;">
+              <p class="card-text ">Rs<b style="font-size: 5rem;" class="text-primary">{{i.app.price}}</b></p>
+              <button type="submit" class="btn btn-info btn-block mt-4 mb-4 "><a href="{% url 'archiveremove' i.id  %}" style="color: white;text-decoration: none;">Remove</a></button>
+          </div>
+      </div>
+    </div>
+    {% endfor %}
+    </div>
+</div>
+</main>
+
+{% endblock %}

@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRM</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+    <style>
+       .megamenu {
+  position: static;
+}
+
+.megamenu .dropdown-menu {
+            background: none;
+            border: none;
+            width: 100%;
+            animation: fadeIn 0.5s ease;
+            transition: opacity 0.3s ease-in-out;
+        }
+
+@keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+
+code {
+  color: #745eb1;
+  background: #fff;
+  padding: 0.1rem 0.2rem;
+  border-radius: 0.2rem;
+}
+
+.text-uppercase {
+  letter-spacing: 0.08em;
+}
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-white py-3 shadow-sm">
+            <a class="navbar-brand ml-5 text-info" href="{% url 'crmhome' %}"><h1>CRM</h1></a>
+            <button type="button" data-toggle="collapse" data-target="#navbarContent" aria-controls="navbars" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            <div id="navbarContent" class="collapse navbar-collapse">
+              <ul class="navbar-nav mx-auto">
+                
+                <li class="nav-item dropdown megamenu"><a id="megamneu" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle font-weight-bold text-uppercase">Apps</a>
+                  <div aria-labelledby="megamneu" class="dropdown-menu border-0 p-0 m-0">
+                    <div class="container-fluid">
+                      <div class="row bg-light rounded-0 m-0 shadow-sm">
+                        <div class="col-lg-7 col-xl-12">
+                          <div class="p-4">
+                            <div class="row">
+                              <div class="col-lg-3 mb-4">
+                                <h6 class="font-weight-bold text-uppercase">Finance</h6>
+                                <hr style="border-color: green; width: 70%;  margin: 0 auto 0 0;">
+                                <ul class="list-unstyled">
+                                  <li class="nav-item"><a href="" class="nav-link text-small pb-0">Accounting</a></li>
+                                  <li class="nav-item"><a href="" class="nav-link text-small pb-0 ">Invoicing</a></li>
+                                  <li class="nav-item"><a href="" class="nav-link text-small pb-0 ">Expenses</a></li>
+                                  <li class="nav-item"><a href="" class="nav-link text-small pb-0 ">Spreadsheet</a></li>
+                                  <li class="nav-item"><a href="" class="nav-link text-small pb-0 ">Documents</a></li>
+                                  <li class="nav-item"><a href="" class="nav-link text-small pb-0 ">Sign</a></li>
+                                </ul>
+                              </div>
+                              <div class="col-lg-3 mb-4">
+                                <h6 class="font-weight-bold text-uppercase">Sales</h6>
+                                <hr style="border-color: green; width: 70%;  margin: 0 auto 0 0;">
+                                <ul class="list-unstyled">
+                                    <li class="nav-item"><a href="" class="nav-link text-small pb-0 ">CRM</a></li>
+                                    <li class="nav-item"><a href="" class="nav-link text-small pb-0 ">Sales</a></li>
+                                    <li class="nav-item"><a href="" class="nav-link text-small pb-0 ">Point of Sale - Shop</a></li>
+                                    <li class="nav-item"><a href="" class="nav-link text-small pb-0 ">Point of Sale - Restaurant</a></li>
+                                    <li class="nav-item"><a href="" class="nav-link text-small pb-0 ">Point of Sale - Subscriptions</a></li>
+                                    <li class="nav-item"><a href="" class="nav-link text-small pb-0 ">Point of Sale - Restaurant</a></li>
+                                  
+                                </ul>
+                              </div>
+                              <div class="col-lg-3 mb-4">
+                                <h6 class="font-weight-bold text-uppercase">Website</h6>
+                                <hr style="border-color: green; width: 70%;  margin: 0 auto 0 0;">
+                                <ul class="list-unstyled">
+                                  <li class="nav-item"><a href="" class="nav-link text-small pb-0 ">Website Builder</a></li>
+                                  <li class="nav-item"><a href="" class="nav-link text-small pb-0 ">eCommerce</a></li>
+                                  <li class="nav-item"><a href="" class="nav-link text-small pb-0 ">Blog</a></li>
+                                  <li class="nav-item"><a href="" class="nav-link text-small pb-0 ">Forum</a></li>
+                                  <li class="nav-item"><a href="" class="nav-link text-small pb-0 ">Live Chat</a></li>
+                                  <li class="nav-item"><a href="" class="nav-link text-small pb-0 ">eLearning</a></li>
+                                </ul>
+                               
+                              </div>
+                              <div class="col-lg-3 mb-4">
+                                <h6 class="font-weight-bold text-uppercase">Inventory and MRP</h6>
+                                <hr style="border-color: green; width: 70%;  margin: 0 auto 0 0;">
+                                <ul class="list-unstyled">
+                                  <li class="nav-item"><a href="" class="nav-link text-small pb-0 ">Inventory</a></li>
+                                  <li class="nav-item"><a href="" class="nav-link text-small pb-0 ">Manufacturing</a></li>
+                                  <li class="nav-item"><a href="" class="nav-link text-small pb-0 ">PLM</a></li>
+                                  <li class="nav-item"><a href="" class="nav-link text-small pb-0 ">Purchase</a></li>
+                                  <li class="nav-item"><a href="" class="nav-link text-small pb-0 ">Maintenance</a></li>
+                                  <li class="nav-item"><a href="" class="nav-link text-small pb-0 ">Quality</a></li>
+                                </ul>
+                              </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-3 mb-4">
+                                  <h6 class="font-weight-bold text-uppercase">Human Resources</h6>
+                                  <hr style="border-color: green; width: 70%;  margin: 0 auto 0 0;">
+                                  <ul class="list-unstyled">
+                                    <li class="nav-item"><a href="" class="nav-link text-small pb-0">Employees</a></li>
+                                    <li class="nav-item"><a href="" class="nav-link text-small pb-0 ">Recruitment</a></li>
+                                    <li class="nav-item"><a href="" class="nav-link text-small pb-0 ">Time Off</a></li>
+                                    <li class="nav-item"><a href="" class="nav-link text-small pb-0 ">Appraisals</a></li>
+                                    <li class="nav-item"><a href="" class="nav-link text-small pb-0 ">Referrals</a></li>
+                                    <li class="nav-item"><a href="" class="nav-link text-small pb-0 ">Fleet</a></li>
+                                  </ul>
+                            
+                                </div>
+                                <div class="col-lg-3 mb-4">
+                                  <h6 class="font-weight-bold text-uppercase">Marketing</h6>
+                                  <hr style="border-color: green; width: 70%;  margin: 0 auto 0 0;">
+                                  <ul class="list-unstyled">
+                                      <li class="nav-item"><a href="" class="nav-link text-small pb-0 ">Social Marketing</a></li>
+                                      <li class="nav-item"><a href="" class="nav-link text-small pb-0 ">Email Marketing</a></li>
+                                      <li class="nav-item"><a href="" class="nav-link text-small pb-0 ">SMS Marketing</a></li>
+                                      <li class="nav-item"><a href="" class="nav-link text-small pb-0 ">Events</a></li>
+                                      <li class="nav-item"><a href="" class="nav-link text-small pb-0 ">Marketing Automation</a></li>
+                                      <li class="nav-item"><a href="" class="nav-link text-small pb-0 ">Surveys</a></li>
+                                    
+                                  </ul>
+                                 
+                                </div>
+                                <div class="col-lg-3 mb-4">
+                                  <h6 class="font-weight-bold text-uppercase">Services</h6>
+                                  <hr style="border-color: green; width: 70%;  margin: 0 auto 0 0;">
+                                  <ul class="list-unstyled">
+                                    <li class="nav-item"><a href="" class="nav-link text-small pb-0 ">Project</a></li>
+                                    <li class="nav-item"><a href="" class="nav-link text-small pb-0 ">Timesheets</a></li>
+                                    <li class="nav-item"><a href="" class="nav-link text-small pb-0 ">Field Service</a></li>
+                                    <li class="nav-item"><a href="" class="nav-link text-small pb-0 ">Helpdesk</a></li>
+                                    <li class="nav-item"><a href="" class="nav-link text-small pb-0 ">Planning</a></li>
+                                    <li class="nav-item"><a href="" class="nav-link text-small pb-0 ">Appointments</a></li>
+                                  </ul>
+                                  
+                                </div>
+                                <div class="col-lg-3 mb-4">
+                                  <h6 class="font-weight-bold text-uppercase">Productivity</h6>
+                                  <hr style="border-color: green; width: 70%;  margin: 0 auto 0 0;">
+                                  <ul class="list-unstyled">
+                                    <li class="nav-item"><a href="" class="nav-link text-small pb-0 ">Discuss</a></li>
+                                    <li class="nav-item"><a href="" class="nav-link text-small pb-0 ">Approvals</a></li>
+                                    <li class="nav-item"><a href="" class="nav-link text-small pb-0 ">IoT</a></li>
+                                    <li class="nav-item"><a href="" class="nav-link text-small pb-0 ">VoIP</a></li>
+                                    <li class="nav-item"><a href="" class="nav-link text-small pb-0 ">Knowledge</a></li>
+                                    <li class="nav-item"><a href="" class="nav-link text-small pb-0 ">WhatsApp</a></li>
+                                  </ul>
+                                  
+                                </div>
+                              </div>
+                          </div>
+                        </div>
+                       
+                      </div>
+                    </div>
+                  </div>
+                </li>
+                <li class="nav-item dropdown megamenu"><a id="megamneu" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle font-weight-bold text-uppercase">Community</a>
+                    <div aria-labelledby="megamneu" class="dropdown-menu border-0 p-0 m-0">
+                      <div class="container-fluid">
+                        <div class="row bg-light rounded-0 m-0 shadow-sm">
+                          <div class="col-lg-7 col-xl-12">
+                            <div class="p-4">
+                              <div class="row">
+                                <div class="col-lg-3 mb-4">
+                                  <h6 class="font-weight-bold text-uppercase">Learn</h6>
+                                  <hr style="border-color: green; width: 70%;  margin: 0 auto 0 0;">
+                                  <ul class="list-unstyled">
+                                    <li class="nav-item"><a href="" class="nav-link text-small pb-0">Tutorials</a></li>
+                                    <li class="nav-item"><a href="" class="nav-link text-small pb-0 ">Documentation</a></li>
+                                    <li class="nav-item"><a href="" class="nav-link text-small pb-0 ">Certifications</a></li>
+                                    <li class="nav-item"><a href="" class="nav-link text-small pb-0 ">Planet Odoo</a></li>
+                                
+                                  </ul>
+                                </div>
+                                <div class="col-lg-3 mb-4">
+                                  <h6 class="font-weight-bold text-uppercase">Empower Education</h6>
+                                  <hr style="border-color: green; width: 70%;  margin: 0 auto 0 0;">
+                                  <ul class="list-unstyled">
+                                      <li class="nav-item"><a href="" class="nav-link text-small pb-0 ">Education Program</a></li>
+                                      <li class="nav-item"><a href="" class="nav-link text-small pb-0 ">Scale Up! Business Game</a></li>
+                                      <li class="nav-item"><a href="" class="nav-link text-small pb-0 ">Visit CRM</a></li>
+                                      
+                                  </ul>
+                                 
+                                </div>
+                                <div class="col-lg-3 mb-4">
+                                  <h6 class="font-weight-bold text-uppercase">Website</h6>
+                                  <hr style="border-color: green; width: 70%;  margin: 0 auto 0 0;">
+                                  <ul class="list-unstyled">
+                                    <li class="nav-item"><a href="" class="nav-link text-small pb-0 ">Website Builder</a></li>
+                                    <li class="nav-item"><a href="" class="nav-link text-small pb-0 ">eCommerce</a></li>
+                                    <li class="nav-item"><a href="" class="nav-link text-small pb-0 ">Blog</a></li>
+                                    <li class="nav-item"><a href="" class="nav-link text-small pb-0 ">Forum</a></li>
+                                    <li class="nav-item"><a href="" class="nav-link text-small pb-0 ">Live Chat</a></li>
+                                    <li class="nav-item"><a href="" class="nav-link text-small pb-0 ">eLearning</a></li>
+                                  </ul>
+                                 
+                                </div>
+                                <div class="col-lg-3 mb-4">
+                                  <h6 class="font-weight-bold text-uppercase">Collaborate</h6>
+                                  <hr style="border-color: green; width: 70%;  margin: 0 auto 0 0;">
+                                  <ul class="list-unstyled">
+                                    <li class="nav-item"><a href="" class="nav-link text-small pb-0 ">Github</a></li>
+                                    <li class="nav-item"><a href="" class="nav-link text-small pb-0 ">Forum</a></li>
+                                    <li class="nav-item"><a href="" class="nav-link text-small pb-0 ">Events</a></li>
+                                    <li class="nav-item"><a href="" class="nav-link text-small pb-0 ">Translations</a></li>
+                                    
+                                  </ul>
+                                  
+                                </div>
+                              </div>
+                              
+                            </div>
+                          </div>
+                         
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                <li class="nav-item"><a href="{% url 'crmpricing' %}" class="nav-link font-weight-bold text-uppercase">Pricing</a></li>
+                <li class="nav-item"><a href="{% url 'crmcontact' %}" class="nav-link font-weight-bold text-uppercase">Contact</a></li>
+              </ul>
+              <span class="navbar-text mr-5 font-weight-bold text-uppercase"><a href="{% url 'crmsignin' %}" style="text-decoration: none;">Sign in</a> 
+              </span>
+              <span class="navbar-text mr-5 font-weight-bold text-uppercase"><a href="{% url 'crmregister' %}" style="text-decoration: none;">Register</a> 
+              </span>
+            </div>
+          </nav>
+    </header>
+    
+    {% block content %}
+        {% endblock %}
+        <!-- Footer -->
+<footer  id="go" class="text-center text-lg-start bg-dark text-muted">
+    <!-- Section: Social media -->
+    <section class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom">
+      <!-- Left -->
+      <div class="me-5 d-none d-lg-block">
+        <span>Get connected with us on social networks:</span>
+      </div>
+      <!-- Left -->
+  
+      <!-- Right -->
+      <div >
+        <a href="" class="me-4 text-reset">
+          <i style="color: white;" class="fab fa-facebook-f"></i>
+        </a>
+        <a href="" class="me-4 text-reset">
+          <i style="color: white;" class="fab fa-twitter"></i>
+        </a>
+        <a href="" class="me-4 text-reset">
+          <i style="color: white;" class="fab fa-google"></i>
+        </a>
+        <a href="" class="me-4 text-reset">
+          <i style="color: white;" class="fab fa-instagram"></i>
+        </a>
+        <a href="" class="me-4 text-reset">
+          <i style="color: white;" class="fab fa-linkedin"></i>
+        </a>
+        <a href="" class="me-4 text-reset">
+          <i style="color: white;" class="fab fa-github"></i>
+        </a>
+      </div>
+      <!-- Right -->
+    </section>
+    <!-- Section: Social media -->
+  
+    <!-- Section: Links  -->
+    <section class="">
+      <div class="container text-center text-md-start mt-5">
+        <!-- Grid row -->
+        <div class="row mt-3">
+          <!-- Grid column -->
+          <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+            <!-- Content -->
+            <h6 class="text-uppercase fw-bold mb-4">
+              <i class="fas fa-gem me-3"></i>CRM
+            </h6>
+            <p>
+                Marketing is not promoting and selling services or products, it is how your business is seen from the customer’s point of view.
+            </p>
+          </div>
+          <!-- Grid column -->
+  
+          <!-- Grid column -->
+          <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+            <!-- Links -->
+            <h6 class="text-uppercase fw-bold mb-4">
+              Products
+            </h6>
+            <p>
+              <a href="" style="text-decoration: none;color: #fff;"  class="text-reset">Angular</a>
+            </p>
+            <p>
+              <a href="" style="text-decoration: none;color: #fff;" class="text-reset">React</a>
+            </p>
+            <p>
+              <a href="" style="text-decoration: none;color: #fff;" class="text-reset">Vue</a>
+            </p>
+            <p>
+              <a href="" style="text-decoration: none;color: #fff;" class="text-reset">Laravel</a>
+            </p>
+          </div>
+          <!-- Grid column -->
+  
+          <!-- Grid column -->
+          <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+            <!-- Links -->
+            <h6 class="text-uppercase fw-bold mb-4">
+              Useful links
+            </h6>
+            <p>
+              <a href="" style="text-decoration: none;color: #fff;" class="text-reset">Pricing</a>
+            </p>
+            <p>
+              <a href="" style="text-decoration: none;color: #fff;" class="text-reset">Settings</a>
+            </p>
+            <p>
+              <a href="" style="text-decoration: none;color: #fff;" class="text-reset">Orders</a>
+            </p>
+            <p>
+              <a href="" style="text-decoration: none;color: #fff;" class="text-reset">Help</a>
+            </p>
+          </div>
+          <!-- Grid column -->
+  
+          <!-- Grid column -->
+          <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+            <!-- Links -->
+            <h6 class="text-uppercase fw-bold mb-4">Contact</h6>
+            
+            <p>
+              <i class="fas fa-envelope me-3"></i>
+              crm@example.com
+            </p>
+            
+          </div>
+          <!-- Grid column -->
+        </div>
+        <!-- Grid row -->
+      </div>
+    </section>
+    <!-- Section: Links  -->
+  
+    <!-- Copyright -->
+    <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.05);">
+      © 2021 Copyright:
+      <a class="text-reset fw-bold" style="text-decoration: none;color: #fff;" href="">CRM.com</a>
+    </div>
+    <!-- Copyright -->
+  </footer>
+  <!-- Footer -->
+</body>
+</html>
