@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Sidebar</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.4/dist/jquery.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://kit.fontawesome.com/274ee977b7.js" crossorigin="anonymous"></script>
+ 
+    <style>
+        body {
+    background-image: linear-gradient(45deg, #ff9a9e 0%, #fad0c4 99%, #fad0c4 100%);
+    background-size: 400% 400%;
+    animation: gradient 15s ease infinite;
+}
+
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background: #ECEFF1; /* Light blue-grey background */
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+
+        .sidebar {
+            height: 100%;
+            width: 0;
+            position: fixed;
+            z-index: 1;
+            top: 0;
+            left: 0;
+            background-color:  #acd7f7; /* Deep blue */
+            overflow-x: hidden;
+            padding-top: 40px;
+            transition: 0.5s;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.3); /* Box shadow for depth */
+        }
+
+        .sidebar a {
+            padding: 12px 16px;
+            text-decoration: none;
+            font-size: 20px;
+            color: #FFF;
+            display: block;
+            transition: 0.3s;
+        }
+
+        .sidebar a:hover {
+            background-color: #5C6BC0; /* Darker blue on hover */
+        }
+
+        .sidebar .closebtn {
+            position: absolute;
+            top: 0;
+            right: 10px; /* Adjusted position */
+            font-size: 30px;
+        }
+
+        .openbtn {
+            font-size: 18px;
+            cursor: pointer;
+            background-color:  #acd7f7; /* Deep blue */
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px; /* Rounded corners */
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Button shadow */
+        }
+
+        .openbtn:hover {
+            background-color:  #acd7f7; /* Darker blue on hover */
+        }
+
+        #main {
+            transition: margin-left .5s;
+            
+            margin-left: 0; /* Initially set to 0 */
+        }
+
+        @media screen and (max-height: 450px) {
+            .sidebar {
+                padding-top: 15px;
+            }
+
+            .sidebar a {
+                font-size: 16px; /* Smaller font size on smaller screens */
+            }
+        }
+
+
+         /* Additional Styling */
+         .content {
+            padding: 20px;
+        }
+
+        .sidebar-brand {
+            font-size: 24px;
+            font-weight: bold;
+            padding: 20px;
+            color: #FFF;
+            text-align: center;
+            border-bottom: 1px solid #5C6BC0; /* Darker blue */
+            margin-bottom: 20px;
+        }
+
+        .sidebar-heading {
+            font-size: 16px;
+            color: #DDD;
+            padding: 10px 20px;
+            text-transform: uppercase;
+            border-bottom: 1px solid #5C6BC0; /* Darker blue */
+            margin-bottom: 10px;
+        }
+
+        .sidebar-menu {
+            margin-top: 20px;
+        }
+
+        .sidebar-menu a {
+            color: #FFF;
+        }
+
+        .sidebar-menu a:hover {
+            background-color: #5C6BC0;
+        }
+
+
+       
+        .cta-btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color:  #acd7f7;
+            color: #FFF;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .cta-btn:hover {
+            background-color: #5C6BC0;
+        }
+        .cta-btn {
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.cta-btn:hover {
+    background-color: #5C6BC0; /* Darker blue on hover */
+    color: #fff; /* Text color on hover */
+}
+
+
+        @keyframes fadeInLeft {
+    0% {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadeInRight {
+    0% {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+/* New styles for the image */
+.scroll-down-image {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            opacity: 0;
+            transition: opacity 0.3s;
+            cursor: pointer;
+        }
+
+        .scroll-down-image.show {
+            opacity: 1;
+        }
+         /* Additional Styling */
+         .content {
+            padding: 20px;
+        }
+
+        .booking-section {
+            background-color: #9c5b5b;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+
+        .booking-option {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .booking-option input[type="checkbox"] {
+            margin-right: 10px;
+        }
+
+        .booking-option label {
+            font-size: 18px;
+        }
+
+
+        .card-container {
+        perspective: 1000px;
+        }
+
+        .card {
+            height: 200px;
+            position: relative;
+            transform-style: preserve-3d;
+            transition: transform 0.8s;
+            border-color: black;
+            border-radius: 10px;
+        }
+
+        .card-flipped {
+            transform: rotateY(180deg);
+        }
+
+        .card .side {
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            position: absolute;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .card .front {
+            transform: rotateY(0deg); /* Ensure the front side is visible initially */
+            display: flex;
+        }
+
+        .card .back {
+            transform: rotateY(180deg);
+            display: none; /* Hide the back content initially */
+        }
+
+        .popup {
+          display: none;
+          position: fixed;
+          top: 75%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          background-color: #fff;
+          padding: 20px;
+          border-radius: 5px;
+          box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+          z-index: 9999;
+        }
+
+        .popup-content {
+            text-align: center;
+        }
+
+        .booking-section {
+            background-color: #fff; /* Changed background color */
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+
+        .card {
+            margin-bottom: 20px; /* Added margin to cards for spacing */
+        }
+
+        .card-body {
+            padding: 20px;
+        }
+
+        /* Additional Styling for Popup */
+        .popup {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: rgba(0, 0, 0, 0.8); /* Semi-transparent background */
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5); /* Increased box shadow */
+            z-index: 9999;
+        }
+
+        .popup-content {
+            text-align: center;
+            color: #fff; /* Changed text color */
+        }
+
+        /* Animation Effect */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <body>
+        <div class="sidebar">
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+            <a class="active" href="#home">Home</a>
+            <a href="{% url 'archive' %}" id="archive-link">Archive</a>
+            <a href="">Logout</a>
+        </div>
+        <div id="main">
+            <div class="openbtn"><button class="openbtn" onclick="openNav()">☰</button><P  style="float: right;" class="">welcome</P></div>
+            
+            <br>
+            
+                <div id="box1" draggable="true" ondragstart="dragStart(event)">
+                    
+                </div>
+                <div id="box2" draggable="true" ondragstart="dragStart(event)">
+                </div>
+                <div id="box3" ondrop="dragDrop(event)" ondragover="allowDrop(event)">
+                </div>
+            
+            <div id="archive-container"></div>
+        <div class="content">
+            <div class="row">
+                <div class="col-md-6">
+                    <img src="">
+                </div>
+                <div class="col-md-6 d-flex flex-column justify-content-center align-items-start" style="opacity: 0; animation: fadeInRight 1s ease forwards;">
+                    <h1 style="font-size: 32px; font-weight: bold; color:  #acd7f7;">DESIGN AND EVENT</h1>
+                    <h2 style="font-size: 24px; color: #333;">Planning Expert</h2>
+                    <h3 style="font-size: 20px; color: #888;">LUX STUDIO</h3>
+                    <p style="font-size: 18px; color: #555; margin-top: 20px;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vestibulum magna vitae eros feugiat, id finibus est lobortis. Nulla facilisi. Integer ut libero nec mauris mattis eleifend. Proin efficitur magna id sem fermentum, nec ultricies lorem hendrerit. Duis vestibulum purus ac diam posuere ultricies.</p>
+                    <a href="#" class="cta-btn mt-3" style="font-size: 18px; text-decoration: none;">Learn More</a>
+                </div>
+            </div>
+        </div>
+        
+        
+        <!-- Booking section -->
+        <div class="booking-section">
+            <div class="container mt-3 mb-3 pt-1">
+                <h1 class="text-center mt-3 mb-3 display-4">Items</h1>
+                <div class="row">
+                  
+                  {% if '1' not in item_idf %}
+                  <div class="col-sm-3 mb-3">
+                    <div id="draggable1" class="card" draggable="true" >
+                      <div class="side front" >
+                      <div class="card-body">
+                        <h5 class="text-center">card1</h5>
+                        
+                        <h6 class="text-center">Price : ₹50000</h6>
+                        <h6 class="text-center">Drag and Drop in Archive</h6>
+                        <div class="text-center">
+                          
+                        </div>
+                      </div>
+                      </div>
+                     
+                    </div>
+                  </div>
+                  {% endif %}
+                  
+          
+          
+                  {% if '2' not in item_idf %}
+                  <div class="col-sm-3 mb-3">
+                    <div id="draggable2" class="card" draggable="true" >
+                      <div class="side front">
+                      <div class="card-body">
+                        <h5 class="text-center">card 2</h5>
+                        <h6 class="text-center">Price : ₹6000</h6>
+                        <h6 class="text-center">Drag and Drop in Archive</h6>
+                        
+                      </div>
+                      </div>
+                      
+                    </div>
+                  </div>
+                  {% endif %}
+          
+                  {% if '3' not in item_idf %}
+                  <div class="col-sm-3 mb-3">
+                    <div id="draggable3" class="card" draggable="true">
+                      <div class="side front">
+                      <div class="card-body">
+                        <h5 class="text-center">card 3</h5>
+                        <h6 class="text-center">Price : ₹7000</h6>
+                        <h6 class="text-center">Drag and Drop in Archive</h6>
+                        
+                      </div>
+                      </div>
+                      
+                    </div>
+                  </div>
+                  {% endif %}
+          
+          
+                  {% if '4' not in item_idf %}
+                <div class="col-sm-3 mb-3">
+                  <div id="draggable4" class="card" draggable="true">
+                    <div class="side front">
+                    <div class="card-body">
+                      <h5 class="text-center">card 4</h5>
+                      <h6 class="text-center">Price : ₹8000</h6>
+                      <h6 class="text-center">Drag and Drop in Archive</h6>
+                      
+                    </div>
+                    </div>
+                   
+                  </div>
+                </div>
+                {% endif %} 
+                </div>
+              </div>
+             <!-- Add a pop-up element -->
+      <div id="popup" class="popup">
+        <div class="popup-content">
+          <img src="{% static 'images/image3.jpg' %}" class="img-fluid" width="70">
+        </div>
+      </div>
+            
+        </div>
+        <br><br>
+        <!-- Footer -->
+        <footer class="text-center text-lg-start">
+         <!-- Section: Social media -->
+         <section class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom">
+           <!-- Left -->
+           <div class="me-5 d-none d-lg-block">
+             <span>Get connected with us on social networks:</span>
+           </div>
+           <!-- Left -->
+       
+           <!-- Right -->
+           <div>
+             <a href="" class="me-4 text-reset">
+               <i class="fab fa-facebook-f"></i>
+             </a>
+             <a href="" class="me-4 text-reset">
+               <i class="fab fa-twitter"></i>
+             </a>
+             <a href="" class="me-4 text-reset">
+               <i class="fab fa-google"></i>
+             </a>
+             <a href="" class="me-4 text-reset">
+               <i class="fab fa-instagram"></i>
+             </a>
+             <a href="" class="me-4 text-reset">
+               <i class="fab fa-linkedin"></i>
+             </a>
+             <a href="" class="me-4 text-reset">
+               <i class="fab fa-github"></i>
+             </a>
+           </div>
+           <!-- Right -->
+         </section>
+         <!-- Section: Social media -->
+       
+         <!-- Section: Links  -->
+         <section class="">
+           <div class="container text-center text-md-start mt-5">
+             <!-- Grid row -->
+             <div class="row mt-3">
+               <!-- Grid column -->
+               <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+                 <!-- Content -->
+                 <h6 class="text-uppercase fw-bold mb-4">
+                   <i class="fas fa-gem me-3"></i>CRM
+                 </h6>
+                 <p>
+                   Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                    Sed blandit, lectus vitae tincidunt facilisis, odio eros placerat est, nec feugiat nunc sem vitae sem
+                 </p>
+               </div>
+               <!-- Grid column -->
+       
+               <!-- Grid column -->
+               <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+                 <!-- Links -->
+                 <h6 class="text-uppercase fw-bold mb-4">
+                   Products
+                 </h6>
+                 <p>
+                   <a href="#!" class="text-reset">CRM1</a>
+                 </p>
+                 <p>
+                   <a href="#!" class="text-reset">CRM2</a>
+                 </p>
+                 <p>
+                   <a href="#!" class="text-reset">CRM3</a>
+                 </p>
+                 <p>
+                   <a href="#!" class="text-reset">CRM4</a>
+                 </p>
+               </div>
+               <!-- Grid column -->
+       
+               <!-- Grid column -->
+               <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+                 <!-- Links -->
+                 <h6 class="text-uppercase fw-bold mb-4">
+                   Useful links
+                 </h6>
+                 <p>
+                   <a href="#!" class="text-reset">About us</a>
+                 </p>
+                 <p>
+                   <a href="#!" class="text-reset">Settings</a>
+                 </p>
+                 <p>
+                   <a href="#!" class="text-reset">Archive</a>
+                 </p>
+                 <p>
+                   <a href="#!" class="text-reset">Help</a>
+                 </p>
+               </div>
+               <!-- Grid column -->
+       
+               <!-- Grid column -->
+               <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+                 <!-- Links -->
+                 <h6 class="text-uppercase fw-bold mb-4">Contact</h6>
+                 <p><i class="fas fa-home me-3"></i> CRM, Kochi, Kerala</p>
+                 <p>
+                   <i class="fas fa-envelope me-3"></i>
+                   crm@gmail.com
+                 </p>
+                 <p><i class="fas fa-phone me-3"></i> + 91 1234567890</p>
+                 <p><i class="fas fa-print me-3"></i> + 91 0987654321</p>
+               </div>
+               <!-- Grid column -->
+             </div>
+             <!-- Grid row -->
+           </div>
+         </section>
+         <!-- Section: Links  -->
+       
+         <!-- Copyright -->
+         <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.05);">
+           © 2024 Copyright:
+           <a class="text-reset fw-bold" href="">www.crm.com</a>
+         </div>
+         <!-- Copyright -->
+       </footer>
+       <!-- Footer -->
+        
+        <!-- Scroll down image -->
+        <img src="https://via.placeholder.com/150" alt="Scroll Down" class="scroll-down-image" onclick="scrollToContent()">
+    </div>
+    <script>
+        window.onload = function () {
+            openNav();
+        };
+
+        function openNav() {
+            document.querySelector(".sidebar").style.width = "250px";
+            document.querySelector("#main").style.marginLeft = "250px";
+        }
+        
+        function closeNav() {
+            document.querySelector(".sidebar").style.width = "0";
+            document.querySelector("#main").style.marginLeft = "0";
+        }
+
+        function scrollToContent() {
+            document.querySelector('.content').scrollIntoView({ behavior: 'smooth' });
+        }
+
+
+
+
+    document.querySelectorAll('.card').forEach(card => {
+              card.addEventListener('dragstart', function(e) {
+                  e.dataTransfer.setData('text/plain', card.id);
+                  document.getElementById('popup').style.display = "block"; // Show the popup
+              });
+          });
+      
+          document.getElementById('popup').addEventListener('dragover', function(e) {
+              e.preventDefault();
+          });
+      
+          document.getElementById('popup').addEventListener('drop', function(e) {
+              e.preventDefault();
+              document.getElementById('popup').style.display = "none"; // Hide the popup
+              var data = e.dataTransfer.getData('text/plain');
+              if (data) {
+                  var card = document.getElementById(data);
+                  card.parentNode.removeChild(card); // Remove the dropped card from the page
+              }
+          });
+      
+          document.addEventListener('dragover', function(e) {
+              e.preventDefault();
+          });
+          
+          document.addEventListener('drop', function(e) {
+              e.preventDefault();
+              document.getElementById('popup').style.display = "none"; // Hide the popup
+          });
+
+
+
+
+
+          // Function to retrieve card IDs from the first page and redirect to the second page with item_ids
+          function redirectToSecondPage() {
+              var cardIds = [];
+              document.querySelectorAll('.card').forEach(card => {
+                  var cardId = card.id.replace('draggable', '');
+                  cardIds.push(cardId);
+              });
+              var linkToSecondPage = '{% url "page2" %}?item_ids=' + cardIds.join(',');
+              window.location.href = linkToSecondPage; // Redirect to the second page with card IDs
+          }
+
+
+
+          document.addEventListener("DOMContentLoaded", function() {
+            const enquiryBox = document.getElementById("enquiry-box");
+            const enquiryLink = document.getElementById("enquiry-link");
+            const closeEnquiryBox = document.getElementById("close-enquiry-box");
+            
+            enquiryLink.addEventListener("click", function(event) {
+                event.preventDefault();
+                enquiryBox.style.display = "block";
+            });
+        
+            closeEnquiryBox.addEventListener("click", function() {
+                enquiryBox.style.display = "none";
+            });
+        });
+// Function to handle drag start
+function handleDragStart(e) {
+            e.dataTransfer.setData('text/plain', e.target.id);
+            e.target.style.opacity = '0.4'; // Reduced opacity while dragging
+        }
+
+        // Function to handle drag end
+        function handleDragEnd(e) {
+            e.target.style.opacity = ''; // Reset opacity after dragging
+        }
+
+        // Function to handle drop
+        function handleDrop(e) {
+            e.preventDefault();
+            document.getElementById('popup').style.display = "none";
+            var data = e.dataTransfer.getData('text/plain');
+            if (data) {
+                var card = document.getElementById(data);
+                card.parentNode.removeChild(card);
+            }
+        }
+
+        // Function to handle drag over
+        function handleDragOver(e) {
+            e.preventDefault();
+        }
+
+        // Add event listeners to cards
+        document.querySelectorAll('.card').forEach(card => {
+            card.addEventListener('dragstart', handleDragStart);
+            card.addEventListener('dragend', handleDragEnd);
+        });
+
+        // Add event listeners to popup and document
+        document.getElementById('popup').addEventListener('dragover', handleDragOver);
+        document.addEventListener('dragover', handleDragOver);
+        document.getElementById('popup').addEventListener('drop', handleDrop);
+        document.addEventListener('drop', handleDrop);
+
+
+
+
+
+        // Add this script inside your <script> tag or in an external JavaScript file
+window.addEventListener('scroll', function() {
+    const parallax = document.querySelector('.parallax');
+    let scrollPosition = window.pageYOffset;
+    parallax.style.transform = 'translateY(' + scrollPosition * 0.5 + 'px)';
+});
+
+    </script>
+</body>
+</html>
