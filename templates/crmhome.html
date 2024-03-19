@@ -3,38 +3,92 @@
 {% load static %}
 
 <style>
-    /* Animation for slide-in from bottom to top */
-    @keyframes slideInFromBottom {
-        from {
-            transform: translateY(100%);
-            opacity: 0;
-        }
-        to {
-            transform: translateY(0);
-            opacity: 1;
-        }
-    }
 
-    /* Apply slide-in animation to specific sections */
-    .animated-section {
-        animation: slideInFromBottom 1s ease forwards;
-    }
 
     /* Additional styling */
     .card {
         cursor: grab;
     }
+    body{
+        background-color: #71dae6;
+    }
+    .section{
+  background-color: #71dae6;;
+    padding: 10rem 0;
+}
+
+.roww{
+    height: 350px;
+    box-shadow: 0px 0px 20px 0px #aaa;
+}
+ 
+ .row1{
+    margin-bottom: 10rem;
+}
+
+.row2{
+    margin-bottom: 10rem;
+}
+
+.row3{
+    margin-bottom: 10rem;
+}
+
+.row1 .img-box,
+.row2 .text-box{
+    float: left;
+    width: 50%;
+}
+
+.row2 .img-box,
+.row1 .text-box{
+    float: right;
+    width: 50%;
+}
+
+.row3 .img-box,
+.row4 .text-box{
+    float: left;
+    width: 50%;
+}
+
+.row4 .img-box,
+.row3 .text-box{
+    float: right;
+    width: 50%;
+}
+
+.roww .img-box{
+    height: 100%;
+}
+.roww .text-box{
+    background-color: white;
+    height: 100%;
+    padding: 2.5rem;
+}
+.roww .img-box img{
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.roww::after{
+    content: '';
+    display: block;
+    clear: both;
+}
+
 </style>
 
 
 <main>
 
-    <section style="border-top: 5px solid green;" class="animated-section">
+    <section style="border-top: 5px solid rgb(37, 45, 122);" >
 
         <div class="container text-center mt-5" style="padding-top: 2%;">
-            <h1 class="text-info" style="font-size: calc(2.5vw + 1rem);">Meet the World's Most Popular<br>
-                Customizable CRM Software</h1>
-            <hr style="border-color: green; ">
+            <h3 class="text-danger" >Integrity is important in building relationships<br>
+                CRM is all about Customer Relationship Management … but it is also about prospect relationships</h3>
+            <hr style="border-color: rgb(10, 24, 188); ">
             <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel" data-interval="2000">
                 <ol class="carousel-indicators">
                     <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
@@ -62,133 +116,63 @@
                 </a>
             </div>
             <hr style="border-color: rgb(26, 0, 128); ">
-            <h4>Over 12 million businesses registered with CRM since the launch, making it one of the most widely
+            <!-- <h4>Over 12 million businesses registered with CRM since the launch, making it one of the most widely
                 used customizable CRM software solutions in the world
-            </h4>
+            </h4> -->
         </div>
     </section>
 
     <section class="animated-section">
- 
+        <div class="container px-4 py-5 px-md-5 text-lg-start">
+            <h1 class="text-dark mt-5 mb-4 text-center">CRM Types:</h1>
+            <div class="card bg-glass position-relative">
         <div class="container">
             <img class="d-block w-100" src="{% static 'images/soft.jpg' %}">
         </div>
     </section>
 
-    <section class="background-radial-gradient overflow-hidden position-relative mt-5 mb-5 animated-section">
-        <div class="container px-4 py-5 px-md-5 text-lg-start">
-            <h1 class="text-info mt-5 mb-4 text-center">CRM features:</h1>
-            <div class="card bg-glass position-relative">
+   
 
-                <div class="row gx-lg-5 align-items-center mt-5 mb-5 ml-5">
-                    <div class="col-lg-6 mb-5 mb-lg-0" style="z-index: 10">
-                        <ul>
-                            <b>
-                                <h3>
-                                    <li>Free plan</li>
-                                    <li>Unlimited CRM users</li>
-                                    <li>Unlimited contacts</li>
-                                </h3>
-                            </b>
-                        </ul>
-                    </div>
-
-                    <div class="col-lg-6 mb-5 mb-lg-0">
-                        <ul>
-                            <b>
-                                <h3>
-                                    <li> Pipeline management</li>
-                                    <li>Data storage</li>
-                                    <li>Mobile CRM iOS/Android</li>
-                                </h3>
-                            </b>
-                        </ul>
-                    </div>
+    <section class="section" id="con">
+        <h1 class="text-dark mt-5 mb-4 text-center">CRM features:</h1>
+        <div class="container">
+            <div class="roww row1" >
+                <div class="img-box"><img src="{% static 'images/crm-strategy.webp' %}" alt="about"></div>
+                <div class="text-box" style="background-color: #ade3e9;">
+                    <h2 class="lg-heading text-black lt-space">About</h2>
+                    <p class="text-gray">Customer relationship management (CRM) is a technology for managing all your company's relationships and interactions with customers and potential customers.</p>
+                    
                 </div>
             </div>
-            <div id="radius-shape-1" class="rounded-circle shadow-5-strong"></div>
-            <div id="radius-shape-2" class="position-absolute rounded-circle shadow-5-strong"></div>
-        </div>
-    </section>
-
-    <section class="animated-section">
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.1.3/css/bootstrap.min.css">
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/Sortable/1.14.0/Sortable.min.js"></script>
-
-        <div class="container" style="text-align: center;">
-            <h3>Try out the drag and drop functionality</h3>
-            <hr style="border-color: green; ">
-            <div class="row" id="card-container-1">
-                <div class="col-md-3 mb-4">
-                    <div class="card" style="border: none;">
-                        <div class="card-body">
-                            <i class="fa-brands fa-youtube" style="color: #d41111;font-size: 5rem;"></i>
-                            <p>Youtube</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3 mb-4">
-                    <div class="card" style="border: none;">
-                        <div class="card-body">
-                            <i class="fa-brands fa-windows" style="color: #74C0FC;font-size: 5rem;"></i>
-                            <p>Windows</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3 mb-4">
-                    <div class="card" style="border: none;">
-                        <div class="card-body">
-                            <i class="fa-brands fa-instagram" style="color: #df4234;font-size: 5rem;"></i>
-                            <p>Instagram</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3 mb-4">
-                    <div class="card" style="border: none;">
-                        <div class="card-body">
-                            <i class="fa-brands fa-facebook" style="color: #0562a8;font-size: 5rem;"></i>
-                            <p>Facebook</p>
-                        </div>
-                    </div>
+            <div class="roww row2">
+                <div class="img-box "><img src="{% static 'images/act.png' %}" alt="activities" ></div>
+                <div class="text-box" style="background-color: #ade3e9;">
+                    <h2 class="lg-heading text-black lt-space">ACTIVITES</h2>
+                    <p class="text-gray">What are the activities of CRM?
+                      CRM (customer relationship management) is the combination of practices, strategies and technologies that companies use to manage and analyze customer interactions and data throughout the customer lifecycle </p>
+                    
                 </div>
             </div>
-            <div class="row" id="card-container-2">
-                <div class="col-md-3 mb-4">
-                    <div class="card" style="border: none;">
-                        <div class="card-body">
-                            <i class="fa-brands fa-whatsapp" style="color: #10ea84;font-size: 5rem;"></i>
-                            <p>Whatsapp</p>
-                        </div>
-                    </div>
+            <div class="roww row3">
+                <div class="img-box"><img src="{% static 'images/ser.png' %}" alt="service" height="90"></div> 
+                <div class="text-box" style="background-color: #ade3e9;">
+                    <h2 class="lg-heading text-black lt-space">CRM service</h2>
+                    <p class="text-gray"> CRM (Customer Relationship Management) systems serve as a hub for organizing and making sense of valuable audience data and insights,.</p>
+                    <a href="" class="btn btn-secondary "> more</a>
                 </div>
-                <div class="col-md-3 mb-4">
-                    <div class="card" style="border: none;">
-                        <div class="card-body">
-                            <i class="fa-brands fa-github" style="color: #000000;font-size: 5rem;"></i>
-                            <p>Github</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3 mb-4">
-                    <div class="card" style="border: none;">
-                        <div class="card-body">
-                            <i class="fa-brands fa-android" style="color: #0aff74;font-size: 5rem;"></i>
-                            <p>Android</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3 mb-4">
-                    <div class="card" style="border: none;">
-                        <div class="card-body">
-                            <i class="fa-brands fa-apple" style="color: #74C0FC;font-size: 5rem;"></i>
-                            <p>Apple</p>
-                        </div>
-                    </div>
+            </div>
+            <div class="roww row4">
+                <div class="img-box"><img src="{% static 'images/soft.jpg' %}" alt="TYPE"></div>
+                <div class="text-box" style="background-color: #ade3e9;">
+                    <h2 class="lg-heading text-black lt-space">CRM TYPES</h2>
+                    <p class="text-gray">
+                      There are 3 types of customer relationship management software that you can use for your business: operational CRM, collaborative CRM, and analytical CRM</p>
+                    <a href="" class="btn btn-secondary "> more</a>
                 </div>
             </div>
         </div>
-    </section>
 
+</section>
 </main>
 
 <script>

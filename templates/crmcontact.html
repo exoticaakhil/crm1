@@ -70,55 +70,103 @@
         background-color: #fff; /* Choose appropriate background color */
         border-radius: 10px;
     }
-
+    
+  body{
+  
+  background: -webkit-linear-gradient(to right, #91e8f0, #82c0c6);  
+  background: linear-gradient(to bottom, #91e8f0, #82c0c6); 
+  }
 </style>
 
-<main style="min-height: 100vh;background-image: linear-gradient(to right, rgb(234, 196, 238) , rgb(197, 233, 229));">
-    <div class="container">
-        <div class="row" style="padding-top: 5%;">
-            <div class="col-md-5 border-right border-success contact-form">
-                <h1>Contact Us</h1>
-                <form>
-                    <div class="form-outline mt-5 mb-4">
-                        <label class="form-label">Name</label>
-                        <input type="text" class="form-control" />
-                    </div>
-                    <div class="form-outline mb-4">
-                        <label class="form-label">Phone Number</label>
-                        <input type="tel" class="form-control" />
-                    </div>
-                    <div class="form-outline mb-4">
-                        <label class="form-label">Email</label>
-                        <input type="email" class="form-control" />
-                    </div>
-                    <div class="form-outline mb-4">
-                        <label class="form-label">Subject</label>
-                        <input type="text" class="form-control" />
-                    </div>
-                    <div class="form-outline mb-4">
-                        <label class="form-label">Question</label>
-                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-                    </div>
-                    <button type="submit" class="btn btn-info btn-block mt-4 mb-4 submit-btn">
-                        Submit
-                    </button>
-                </form>
-            </div>
-            <div class="col-md-1">
-                <span hidden>h</span>
-            </div>
-            <div class="col-md-3 direct-call">
-                <h3 class="mt-5"><img src="https://odoocdn.com/helpdesk/static/src/img/tickets.svg" /> Direct contact</h3>
-                <hr>
-                <div class="mt-5 mb-3"> <a href="">Need help?</a></div>
-                <div class=" mb-3"><a href="">Contact Us?</a></div>
-                <div class="mb-3"><a href="">Chat with us?</a></div>
-                <div class=" mb-3"><a href="">Call us?</a></div>
-                <div class=" mb-3"><a href="">Schedule a video conference?</div>
-            </div>
-            
+
+
+<main style="min-height: 100vh;">
+  
+      <br><br>
+      <div>
+      <div class="container py-5 mt-3">
+        <div class="card">
+          <div class="card-body">
+            <h1 class="font-weight-light text-center py-3">Contact Us</h1>
+            <div class="row">
+              <div class="col-lg-6 col-md-12 col-sm-12">
+      
+               <div class="row pt-3">
+                 <div class="col-lg-1 offset-1 col-md-2 col-sm-2">
+                   <span style="font-size: 30px; color: cadetblue"><i class="fas fa-map-marker-alt"></i></span>
+                 </div>
+      
+                  <div class="col-lg-10 col-md-9 col-sm-9">
+                    <h3 class="font-weight-light">Find Us at the office</h3>
+                    <p>xyz<br>
+                      ADDRESS<br>
+                      PLACE
+                    </p>
+                 </div>
+               </div>
+      
+               <div class="row pt-3">
+                 <div class="col-lg-1 offset-1 col-md-2 col-sm-2">
+                   <span style="font-size: 30px; color: coral"><i class="fas fa-phone-volume"></i></span>
+                 </div>
+      
+                  <div class="col-lg-10 col-md-9 col-sm-9">
+                    <h3 class="font-weight-light">Give Us a Ring</h3>
+                    <p>CRM<br>
+                      +91 9072477900<br>
+                      
+                    </p>
+                 </div>
+               </div>
+      
+              </div>
+      
+              <div class="col-lg-6 col-md-12 col-sm-12">
+                  <div class="container-fluid">
+                      <form action="" method="post" enctype="multipart/form-data">
+                          
+                          <div class="form-row">
+      
+                  <div class="form-group col-lg-6 col-md-12 col-sm-12">
+                    <label>Full Name</label>
+                    <input type="text" name="name" class="form-control" placeholder="Full Name" required>
+                  </div>
+      
+                  <div class="form-group col-lg-6 col-md-12 col-sm-12">
+                    <label>Contact Number</label>
+                    <input type="text" name="contact" class="form-control" placeholder="Contact Number" required>
+                  </div>
+      
+                  <div class="form-group col-lg-6 col-md-12 col-sm-12">
+                    <label>Email Id</label>
+                    <input type="email" name="email" class="form-control" placeholder="Email ID" required>
+                  </div>
+      
+                   <div class="form-group col-lg-6 col-md-12 col-sm-12">
+                    <label>Subject</label>
+                    <input type="text" name="subject" class="form-control" placeholder="Enter Subject" required>
+                  </div>
+      
+                   <div class="form-group col-lg-12 col-md-12 col-sm-12">
+                    <label>Message</label>
+                    <textarea name="message" class="form-control" placeholder="Message....."></textarea>
+                  </div>
+      
+                   <div class="form-group col-lg-6 col-md-12 col-sm-12">
+                     <input type="submit" value="Send" class="form-control btn btn-primary">
+                   </div>
+      
+                  <div class="form-group col-lg-6 col-md-12 col-sm-12">
+                     <input type="reset" value="Clear" class="form-control btn btn-primary">
+                  </div>
+                      </form>
+                  </div>
+              </div>
+          </div>
         </div>
-    </div>
+        </div>
+      </div>
+      </div>
 </main>
 
 {% endblock %}

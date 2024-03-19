@@ -34,7 +34,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <style>
       @import url("https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap");
-      :root{--header-height: 3rem;--nav-width: 68px;--first-color: white;--first-color-light: #fafafa;
+      :root{--header-height: 3rem;--nav-width: 68px;--first-color: white;--first-color-dartext-dark: #fafafa;
           --white-color: #F7F6FB;--body-font: 'Nunito', sans-serif;--normal-font-size: 1rem;--z-fixed: 100}*,
           ::before,::after{box-sizing: border-box}
       body{position: relative;
@@ -57,7 +57,7 @@
           align-items: center;column-gap: 1rem;
           padding: .5rem 0 .5rem 1.5rem}.nav_logo{margin-bottom: 2rem}.nav_logo-icon{font-size: 1.25rem;
               color: var(--white-color)}.nav_logo-name{color: var(--white-color);
-                  font-weight: 700}.nav_link{position: relative;color: var(--first-color-light);
+                  font-weight: 700}.nav_link{position: relative;color: var(--first-color-dartext-dark);
   margin-bottom: 1.5rem;transition: .3s}
   .nav_link:hover{ color:yellow; 
       /* background-color: #4723D9;   */
@@ -126,45 +126,39 @@
  });
   </script>
 </head>
-<body id="body-pd">
-  <header class="header bg-info" id="header">
-      <div class="header_toggle text-light"> <i class='bx bx-menu bx bx-menu-light' id="header-toggle"></i><b class="ml-4" >CRM</b> </div>
+<body id="body-pd" >
+  <header class="header " id="header" style="background-color: aqua;">
+      <div class="header_toggle text-dark"> <i class='bx bx-menu bx bx-menu-dartext-dark' id="header-toggle"></i><b class="ml-4" >CRM</b> </div>
     
-          <a href="" class="nav_link active mt-2">  <span class="nav_name mt-2" >Welcome {{currentuser}}</span> </a>
-          
-           <!-- <a class="dropdown-item text-right" href="#" data-toggle="modal" data-target="#logoutModal">
-              <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-              Logout
-          </a> -->
-         
+          <a href="" class="nav_link active mt-2">  <span class="nav_name mt-2 text-dark" >Welcome {{currentuser}}</span> </a>      
 </div>
   </header>
-  <div class="l-navbar bg-info" id="nav-bar">
-      <nav class="nav bg-info">
+  <div class="l-navbar " id="nav-bar" style="background-color: aqua;">
+      <nav class="nav " style="background-color: aqua;">
           <div> <a href="" class="nav_logo" hidden> <i class='bx bx-layer nav_logo-icon'></i> <span class="nav_logo-name">Admin Panel</span> </a>
             
               <div class="nav_list">
                    <!-- <a href="#" class="nav_link active"> <i class='bx bx-grid-alt nav_icon'></i> <span class="nav_name">Dashboard</span> </a> <a href="#" class="nav_link"> <i class='bx bx-user nav_icon'></i> <span class="nav_name">Users</span> </a> <a href="#" class="nav_link"> <i class='bx bx-message-square-detail nav_icon'></i> <span class="nav_name">Messages</span> </a> <a href="#" class="nav_link"> <i class='bx bx-bookmark nav_icon'></i> <span class="nav_name">Bookmark</span> </a> <a href="#" class="nav_link"> <i class='bx bx-folder nav_icon'></i> <span class="nav_name">Files</span> </a> <a href="#" class="nav_link"> <i class='bx bx-bar-chart-alt-2 nav_icon'></i> <span class="nav_name">Stats</span> </a>
                     -->
-                    <a href="{% url 'crmloginpage' %}" class="nav_link text-light">
+                    <a href="{% url 'crmloginpage' %}" class="nav_link text-dark">
                       <i class='bx bx-home nav_icon'></i> 
                       <span class="nav_name">Home</span>  
                       <!--  -->
-                      <a href="#" class="nav_link text-light"> 
+                      <a href="#" class="nav_link text-dark"> 
                           <i class="fa-solid fa-circle-check"></i>
                           <span class="nav_name">Services</span> 
-                      <a href="" class="nav_link text-light"> 
+                      <a href="" class="nav_link text-dark"> 
                         <i class="fa-solid fa-address-card"></i>
                           <span class="nav_name">About</span>  
-                      <a class="nav_link text-light" href="">
-                        <i class="fa-solid fa-gear" style="color: #ffffff;"></i>
+                      <a class="nav_link text-dark" href="">
+                        <i class="fa-solid fa-gear" style="color: #010101;"></i>
                               <span class="nav_name">Settings</span>  
                
                       </a>
-                  <a href="{% url 'crmarchive' %}" class="nav_link text-light"> 
+                  <a href="{% url 'crmarchive' %}" class="nav_link text-dark"> 
                       <i class='fas fa-chalkboard'></i>
                       <span class="nav_name">Archive</span></a>
-                      <a href="{% url 'log_out' %}" class="nav_link text-light"> 
+                      <a href="{% url 'log_out' %}" class="nav_link text-dark"> 
                         <i class='fas fa-sign-out-alt fa-sm fa-fw '></i>
                         <span class="nav_name">Logout</span></a>
                  

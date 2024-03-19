@@ -1,14 +1,13 @@
 {% extends 'crmusernav.html' %}
 {% block content %}
 {% load static %}
-
+<style>
+body{
+    background-color: #71dae6;
+}
+</style>
 <main>
-    <section class="mb-5">
-        <div class="container-fluid" style="background-image: linear-gradient(to right, rgb(21, 147, 220) , rgb(169, 232, 227));text-align: center;">
-            <h1 class="text-white " style="padding-top: 8%;font-size: 5rem;">Choose your Apps</h1>
-                    <h5 class="text-white" style="padding-bottom: 8%;">Free instant access, no credit card required.</h5>
-        </div>
-    </section>
+    
     <div class="container">
      
 <div class="row mt-3" id="card-container">
@@ -16,10 +15,10 @@
     {% if app.id not in archived_app_ids %}
     <div class="col-sm-4 mb-3">
         <div class="card" style="border-top: 5px solid red;" draggable="true" ondragstart="drag(event)" ondragend="dragEnd(event)" data-app-id="{{ app.id }}">
-            <div class="card-body">
-                <h1 class="card-title text-info">{{ app.name }}</h1>
-                <hr style="border-color: green; margin: 0 auto 0 0;">
-                <p class="card-text">Rs<b style="font-size: 5rem;" class="text-primary">{{ app.price }}</b></p>
+            <div class="card-body" style="background-color: rgb(57, 91, 97);">
+                <h1 class="card-title text-warning">{{ app.name }}</h1>
+                <hr style="border-color: rgb(167, 127, 7); margin: 0 auto 0 0;">
+                <p class="card-text text-danger">Rs<b style="font-size: 2rem;" class="text-warning">{{ app.price }}</b></p>
                 <button type="submit" class="btn btn-info btn-block mt-4 mb-4 "><a href="" style="color: white;text-decoration: none;">Buy</a></button>
                 <div class="delete-icon" style="display: none;">
                     <a href="{% url 'archive_app' app.id  %}" class="delete-link" data-app-id="{{ app.id }}"><i class="fa-solid fa-box-archive" style="color: #000000;font-size: 5rem;"></i></a>
@@ -34,47 +33,7 @@
 
 
     
-    <div class="row mt-5"  style="text-align: center;">
-        <a href="" class="col-lg-2 mb-2" style="text-decoration: none;color: black;">
-            
-                <img   src="https://download.odoocdn.com/icons/web_studio/static/description/icon.svg"/>
-                <p>Studio</p>
-            
-        </a>
-        <a href="" class="col-lg-2 mb-2" style="text-decoration: none;color: black;">
-            
-            <img   src="https://download.odoocdn.com/icons/sale_subscription/static/description/icon.svg"/>
-            <p >Subscription</p>
-        
-    </a>
-    <a href="" class="col-lg-2 mb-2" style="text-decoration: none;color: black;">
-            
-        <img   src="https://download.odoocdn.com/icons/sale_renting/static/description/icon.svg"/>
-        <p>Rental</p>
-    
-    </a>
-    <a href="" class="col-lg-2 mb-2" style="text-decoration: none;color: black;">
-    
-    <img   src="https://download.odoocdn.com/icons/point_of_sale/static/description/icon.svg"/>
-    <p >Point of Sale</p>
-    
-    </a>
-    <a href="" class="col-lg-2 mb-2" style="text-decoration: none;color: black;">
-            
-        <img   src="https://download.odoocdn.com/icons/mail/static/description/icon.svg"/>
-        <p>Discuss</p>
-    
-</a>
-<a href="" class="col-lg-2 mb-2" style="text-decoration: none;color: black;">
-    
-    <img   src="https://download.odoocdn.com/icons/documents/static/description/icon.svg"/>
-    <p >Documents</p>
-
-</a>
-    </div>
-    <div><a href="" style="text-decoration: none;"> <h5 class="text-info text-center">click for more<img class="ml-2" src="https://odoocdn.com/openerp_website/static/src/img/arrows/secondary_arrow_sm_03.svg" width="40px" class="align-baseline ms-3" alt="" loading="lazy"/></h5></a></div>
-
-</div>
+   
 </main>
 
 
