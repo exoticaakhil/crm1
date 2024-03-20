@@ -1,0 +1,48 @@
+{% extends 'crmusernav.html' %}
+{% block content %}
+{% load static %}
+<style>
+    body{
+    background-color: #71dae6;
+}
+</style>
+<section class="vh-200 bg-image"
+     >
+      <div class="mask d-flex align-items-center h-100 gradient-custom-3">
+        <div class="container h-100">
+          <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col-12 col-md-9 col-lg-7 col-xl-8">
+              <div class="card mt-5 mb-5" style="border-radius: 15px;">
+                <div class="card-body p-5">
+                  <h2 class="text-uppercase text-center mb-3">Add Item</h2>
+    
+                  <form action="{% url 'appdetails' %}" method="post" enctype="multipart/form-data">
+                      {% csrf_token %}
+                    <div class="form-outline mb-3">
+                        <label class="form-label" >Name</label>
+                      <input type="text" name="name" class="form-control form-control-lg" required/>
+                    </div>
+                    <div class="form-outline mb-3">
+                        <label class="form-label" >Price</label>
+                      <input type="number" name="price" class="form-control form-control-lg" required/>
+                    </div>
+                   
+                    <div class="row">
+                        <div class="col-md-1 mt-4"></div>
+                        <div class="col-md-5 mt-3 d-flex" style="margin-left:5vh">
+                            <input type="submit" class="btn btn-danger bg-gradient me-3" name="Next" value="SAVE & NEXT"></input> 
+                            <input type="submit" class="btn btn-danger bg-gradient" name="Save" value="SAVE"></input>
+                        </div>
+                    
+    
+                  </form>
+    
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+     
+    </section>
+{% endblock %}

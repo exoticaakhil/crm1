@@ -10,15 +10,15 @@ body{
     
     <div class="container">
      
-<div class="row mt-3" id="card-container">
-    {% for app in product %}
+<div class="row mt-3" id="card-container" style="border-radius: 20px;">
+    {% for app in product1 %}
     {% if app.id not in archived_app_ids %}
-    <div class="col-sm-4 mb-3">
-        <div class="card" style="border-top: 5px solid red;" draggable="true" ondragstart="drag(event)" ondragend="dragEnd(event)" data-app-id="{{ app.id }}">
-            <div class="card-body" style="background-color: rgb(57, 91, 97);">
+    <div class="col-sm-4 mb-3"  style="border-radius: 20px;">
+        <div class="card" style="border-top: 5px solid red; border-radius: 20px;" draggable="true" ondragstart="drag(event)" ondragend="dragEnd(event)" data-app-id="{{ app.id }}">
+            <div class="card-body" style="background-color: rgb(57, 91, 97);border-radius: 20px;">
                 <h1 class="card-title text-warning">{{ app.name }}</h1>
                 <hr style="border-color: rgb(167, 127, 7); margin: 0 auto 0 0;">
-                <p class="card-text text-danger">Rs<b style="font-size: 2rem;" class="text-warning">{{ app.price }}</b></p>
+                <p class="card-text text-danger"><b style="font-size: 2rem;" class="text-warning">{{ app.price }}</b></p>
                 <button type="submit" class="btn btn-info btn-block mt-4 mb-4 "><a href="" style="color: white;text-decoration: none;">Buy</a></button>
                 <div class="delete-icon" style="display: none;">
                     <a href="{% url 'archive_app' app.id  %}" class="delete-link" data-app-id="{{ app.id }}"><i class="fa-solid fa-box-archive" style="color: #000000;font-size: 5rem;"></i></a>
@@ -28,6 +28,24 @@ body{
     </div>
     {% endif %}
     {% endfor %}
+    {% for app in product %}
+    {% if app.id not in archived_app_ids %}
+    <div class="col-sm-4 mb-3">
+        <div class="card" style="border-top: 5px solid red;border-radius: 20px;" draggable="true" ondragstart="drag(event)" ondragend="dragEnd(event)" data-app-id="{{ app.id }}">
+            <div class="card-body" style="background-color: rgb(57, 91, 97);border-radius: 20px;">
+                <h1 class="card-title text-warning">{{ app.name }}</h1>
+                <hr style="border-color: rgb(167, 127, 7); margin: 0 auto 0 0;">
+                <p class="card-text text-danger"><b style="font-size: 2rem;" class="text-warning">{{ app.price }}</b></p>
+                <button type="submit" class="btn btn-info btn-block mt-4 mb-4 "><a href="" style="color: white;text-decoration: none;">Buy</a></button>
+                <div class="delete-icon" style="display: none;">
+                    <a href="{% url 'archive_app' app.id  %}" class="delete-link" data-app-id="{{ app.id }}"><i class="fa-solid fa-box-archive" style="color: #000000;font-size: 5rem;"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endif %}
+    {% endfor %}
+
 </div>
 
 

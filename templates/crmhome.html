@@ -10,18 +10,21 @@
         cursor: grab;
     }
     body{
-        background-color: #71dae6;
+        background-color: #ACE2E1;
     }
     .section{
-  background-color: #71dae6;;
+  background-color: #ACE2E1;;
     padding: 10rem 0;
+   
 }
 
 .roww{
     height: 350px;
-    box-shadow: 0px 0px 20px 0px #aaa;
+    box-shadow: 0px 0px 60px 0px #010101;
+ border-radius: 20px;
+    
 }
- 
+
  .row1{
     margin-bottom: 10rem;
 }
@@ -77,67 +80,110 @@
     display: block;
     clear: both;
 }
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Acme', sans-serif;
+}
+
+
+
+span{
+    text-shadow: none;
+}
+
+
+
+.heading{
+    text-align: center;
+    font-size: 3opx;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #000000;
+    
+    text-shadow: 
+      -1px -1px 1px #111, 
+      2px 2px 1px #363636;
+    box-shadow: 
+      -1px -1px 1px #111, 
+      2px 2px 1px #363636;
+    padding: 15px auto;
+}
+
+.gallery{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 80px auto;
+}
+
+.image{
+    position: relative;
+    width: 380px;
+    height: 280px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    transform: rotate(10deg);
+    border-radius: 15px;
+    transition: all 0.5s ease;
+    cursor: pointer;
+    
+}
+
+.image img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 15px;
+    filter: grayscale(100%);
+}
+
+.text{
+    position: absolute;
+    top: 85%;
+    left: 5%;
+    font-size: 1.4rem;
+    color: #f28482;
+    pointer-events: none;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    text-shadow: 
+      -1px -1px 1px #111, 
+      2px 2px 1px #363636;
+    background: #2d2d2d;
+    width: 90%;
+    text-align: center;
+    border-radius: 10px;
+}
+
+.image:hover{
+    transform: rotate(0deg);
+}
+
+
+.image:hover img {
+    filter: grayscale(0);
+}
+.container1{
+    width: 1400px;
+    max-width: 90%;
+    height: 100%;
+    margin: 50px auto;
+}
+
+
 
 </style>
 
 
+
 <main>
-
-    <section style="border-top: 5px solid rgb(37, 45, 122);" >
-
-        <div class="container text-center mt-5" style="padding-top: 2%;">
-            <h3 class="text-danger" >Integrity is important in building relationships<br>
-                CRM is all about Customer Relationship Management … but it is also about prospect relationships</h3>
-            <hr style="border-color: rgb(10, 24, 188); ">
-            <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel" data-interval="2000">
-                <ol class="carousel-indicators">
-                    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-                    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-                    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-                </ol>
-                <div class="carousel-inner mt-5 mb-5">
-                    <div class="carousel-item active">
-                        <img class="d-block w-100" src="{% static 'images/crm-strategy.webp' %}" alt="First slide">
-                    </div>
-                    <div class="carousel-item">
-                        <img class="d-block w-100" src="{% static 'images/ser.png' %}" alt="Second slide">
-                    </div>
-                    <div class="carousel-item">
-                        <img class="d-block w-100" src="{% static 'images/act.png' %}" alt="Third slide">
-                    </div>
-                </div>
-                <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="sr-only">Previous</span>
-                </a>
-                <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="sr-only">Next</span>
-                </a>
-            </div>
-            <hr style="border-color: rgb(26, 0, 128); ">
-            <!-- <h4>Over 12 million businesses registered with CRM since the launch, making it one of the most widely
-                used customizable CRM software solutions in the world
-            </h4> -->
-        </div>
-    </section>
-
-    <section class="animated-section">
-        <div class="container px-4 py-5 px-md-5 text-lg-start">
-            <h1 class="text-dark mt-5 mb-4 text-center">CRM Types:</h1>
-            <div class="card bg-glass position-relative">
-        <div class="container">
-            <img class="d-block w-100" src="{% static 'images/soft.jpg' %}">
-        </div>
-    </section>
-
-   
 
     <section class="section" id="con">
         <h1 class="text-dark mt-5 mb-4 text-center">CRM features:</h1>
         <div class="container">
             <div class="roww row1" >
-                <div class="img-box"><img src="{% static 'images/crm-strategy.webp' %}" alt="about"></div>
+                <div class="img-box"><img src="{% static 'images/crm-strategy.webp' %}" alt="about" style="border-radius: 20px;"></div>
                 <div class="text-box" style="background-color: #ade3e9;">
                     <h2 class="lg-heading text-black lt-space">About</h2>
                     <p class="text-gray">Customer relationship management (CRM) is a technology for managing all your company's relationships and interactions with customers and potential customers.</p>
@@ -145,8 +191,8 @@
                 </div>
             </div>
             <div class="roww row2">
-                <div class="img-box "><img src="{% static 'images/act.png' %}" alt="activities" ></div>
-                <div class="text-box" style="background-color: #ade3e9;">
+                <div class="img-box "><img src="{% static 'images/act.png' %}" alt="activities" style="border-radius: 20px;"></div>
+                <div class="text-box" style="background-color: #ade3e9;style="border-radius: 20px;"">
                     <h2 class="lg-heading text-black lt-space">ACTIVITES</h2>
                     <p class="text-gray">What are the activities of CRM?
                       CRM (customer relationship management) is the combination of practices, strategies and technologies that companies use to manage and analyze customer interactions and data throughout the customer lifecycle </p>
@@ -154,7 +200,7 @@
                 </div>
             </div>
             <div class="roww row3">
-                <div class="img-box"><img src="{% static 'images/ser.png' %}" alt="service" height="90"></div> 
+                <div class="img-box"><img src="{% static 'images/ser.png' %}" alt="service" height="90" style="border-radius: 20px;"></div> 
                 <div class="text-box" style="background-color: #ade3e9;">
                     <h2 class="lg-heading text-black lt-space">CRM service</h2>
                     <p class="text-gray"> CRM (Customer Relationship Management) systems serve as a hub for organizing and making sense of valuable audience data and insights,.</p>
@@ -162,7 +208,7 @@
                 </div>
             </div>
             <div class="roww row4">
-                <div class="img-box"><img src="{% static 'images/soft.jpg' %}" alt="TYPE"></div>
+                <div class="img-box"><img src="{% static 'images/soft.jpg' %}" alt="TYPE" style="border-radius: 20px;"></div>
                 <div class="text-box" style="background-color: #ade3e9;">
                     <h2 class="lg-heading text-black lt-space">CRM TYPES</h2>
                     <p class="text-gray">
@@ -173,6 +219,26 @@
         </div>
 
 </section>
+<div class="container container1">
+    <h1 class="heading"> CRM <span></span>SOFTWARE</h1> 
+     <div class="gallery">
+         <div class="image">
+             <img src="./images/Sunil Chhetri.jpg" alt="">
+             <h1 class="text">Sunil Chhetri</h1>
+         </div>
+         <div class="image">
+             <img src="./images/Cristiano Ronaldo.jpg" alt="">
+             <h1 class="text">Cristiano Ronaldo</h1>
+         </div>
+         <div class="image">
+             <img src="./images/Lionel Messi.jpg" alt="">
+             <h1 class="text">Lionel Messi</h1>
+         </div>
+     </div>
+
+    
+
+ </div>
 </main>
 
 <script>

@@ -18,7 +18,7 @@
         <div class="card-body" style="background-color: rgb(57, 91, 97);">
             <h1 class="card-title text-warning">{{ i.app.name }}</h1>
             <hr style="border-color: rgb(167, 127, 7); margin: 0 auto 0 0;">
-            <p class="card-text text-danger">Rs<b style="font-size: 2rem;" class="text-warning">{{ i.app.price }}</b></p>
+            <p class="card-text text-danger"><b style="font-size: 2rem;" class="text-warning">{{ i.app.price }}</b></p>
             <button type="submit" class="btn btn-info btn-block mt-4 mb-4 "><a href="{% url 'archiveremove' i.id  %}" style="color: white;text-decoration: none;">Remove</a></button>
           </div>
       </div>

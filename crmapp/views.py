@@ -20,6 +20,7 @@ def crmregister(request):
     return render(request,'crmregister.html')
 
 def register(request):
+
     if request.method=='POST':
         firstname=request.POST['firstname']
         lastname=request.POST['lastname']
@@ -38,6 +39,17 @@ def register(request):
             user=User.objects.create_user(first_name=firstname,last_name=lastname,username=username,email=email,password=password)
             user.save()
             messages.success(request,'Registration Successfull')
+            if App.objects.exists():
+                pass
+            else:
+        
+                app1 = App(name="HP", price=600)
+                app1.save()
+                app2 = App(name="DELL", price=500)
+                app2.save()
+                app3 = App(name="ASUSE", price=750)
+                app3.save()
+                
             return redirect('crmsignin')
     
 def signinpage(request):
@@ -59,6 +71,8 @@ def signinpage(request):
         
 def crmcontact(request):
     return render(request,'crmcontact.html')
+def crmadditem(request):
+    return render(request,'crmadditem.html')
 
 def crmpricing(request):
     return render(request,'crmpricing.html')
@@ -72,9 +86,11 @@ def crmusernav(request):
 
 def crmloginpage(request):
      currentuser=request.user.username
-     product=App.objects.all()
+     currentuser1=request.user
+     product1=App.objects.filter(user=None)
+     product=App.objects.filter(user=currentuser1)
      archived_app_ids = Archive.objects.values_list('app_id', flat=True)
-     return render(request,'crmloginpage.html',{'currentuser':currentuser,'product':product,'archived_app_ids': archived_app_ids})
+     return render(request,'crmloginpage.html',{'currentuser':currentuser,'product':product,'archived_app_ids': archived_app_ids,'product1':product1})
 
 def crmarchive(request):
     currentuser=request.user.username
@@ -84,14 +100,20 @@ def adminhome(request):
     return render(request,'adminhome.html')
 
 def appdetails(request):
+    currentuser=request.user
     if request.method=='POST':
         name=request.POST['name']
         price=request.POST['price']
         
-        data=App(name=name,price=price)
+        data=App(name=name,price=price,user=currentuser)
         data.save()
-        
-        return redirect('adminhome')
+        if 'Next' in request.POST:
+            return redirect('crmadditem')
+        if "Save" in request.POST:
+            return redirect('crmloginpage') 
+
+    else:
+        return redirect('crmadditem')
     
 def crmarchive(request):
     currentuser=request.user
