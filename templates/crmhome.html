@@ -14,7 +14,7 @@
     }
     .section{
   background-color: #ACE2E1;;
-    padding: 10rem 0;
+
    
 }
 
@@ -170,7 +170,114 @@ span{
     height: 100%;
     margin: 50px auto;
 }
+*{
+    margin: 0;
+    padding: 0;
+    font-family: "gilroy";
+    box-sizing: border-box;
+}
 
+html,body{
+    width: 100%;
+    height: 100%;
+}
+
+#main{
+    width: 100%;
+    height: 100vh;
+}
+
+#back{
+    width: 100%;
+    height: 100vh;
+}
+
+#back img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+#top{
+    pointer-events: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+}
+
+#workingarea{
+    position: relative;
+    margin: 0 auto;
+    width: 80%;
+    height: 100vh;
+    max-width: 1920px;
+}
+
+
+#hero{
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translate(0, -50%);
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+
+}
+
+#heroleft{
+    min-width: 50%;
+}
+
+#heroleft .elem{
+    height: 9vw;
+    overflow: hidden;
+}
+
+#heroleft .elem h1{
+    line-height: 0.9;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    color: #faf8f8;
+    font-weight: 100;
+    font-size: 8vw;
+}
+
+
+
+#heroright p{
+    font-size: 14px;
+    text-align: right;
+    font-weight: 300;
+}
+
+#heroright #imagediv{
+    width: 100%;
+    height: 170px;
+    margin-top: 20px;
+    margin-bottom: 30px;
+    background-image: url(./images/IMG_7565.JPG);
+    background-size: cover;
+    background-position: center;
+}
+
+#heroright p:nth-child(3){
+    margin-bottom: 100px;
+}
+#heroright{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    width: 17%;
+    color: #fff;
+}
+
+#heroright p{
+    font-size: 14px;
+    text-align: right;
+    font-weight: 300;
+}
 
 
 </style>
@@ -178,63 +285,110 @@ span{
 
 
 <main>
+    <div id="main">
+        <div id="back">
+            <img src="{% static 'images/crm.jpg' %}" >
+        </div>
+        <div id="top">
+            <div id="workingarea">
+                
+                <div id="hero">
+                    <div id="heroleft">
+                        <div class="elem">
+                            <h1>Welcome to</h1>
+                        </div>
+                        <div class="elem">
+                            <h1>CRM</h1>
+                        </div>
+                       
+                        
+                    </div>
+                    <div id="heroright">
+                        <p></p>
+                        <div id="imagediv">
+
+                        </div>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus exercitationem consequatur ex maiores voluptatibus quod magni sed doloremque incidunt fugiat.</p>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto at, quam aut aliquam eius quisquam commodi voluptate, recusandae ipsum ut numquam laboriosam consequatur.</p>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    <br><br>
 
     <section class="section" id="con">
-        <h1 class="text-dark mt-5 mb-4 text-center">CRM features:</h1>
+        
         <div class="container">
             <div class="roww row1" >
-                <div class="img-box"><img src="{% static 'images/crm-strategy.webp' %}" alt="about" style="border-radius: 20px;"></div>
+                <div class="img-box"><img src="{% static 'images/cc10.jpg' %}" alt="about" style="border-radius: 20px;"></div>
                 <div class="text-box" style="background-color: #ade3e9;">
-                    <h2 class="lg-heading text-black lt-space">About</h2>
-                    <p class="text-gray">Customer relationship management (CRM) is a technology for managing all your company's relationships and interactions with customers and potential customers.</p>
+                    <h3 class="lg-heading text-black lt-space">About</h3>
+                    <p class="text-gray"> CRM is a technology for managing all your company's relationships and interactions with customers </p>
                     
                 </div>
             </div>
             <div class="roww row2">
-                <div class="img-box "><img src="{% static 'images/act.png' %}" alt="activities" style="border-radius: 20px;"></div>
-                <div class="text-box" style="background-color: #ade3e9;style="border-radius: 20px;"">
-                    <h2 class="lg-heading text-black lt-space">ACTIVITES</h2>
-                    <p class="text-gray">What are the activities of CRM?
-                      CRM (customer relationship management) is the combination of practices, strategies and technologies that companies use to manage and analyze customer interactions and data throughout the customer lifecycle </p>
+                <div class="img-box "><img src="{% static 'images/cc11.jpg' %}" alt="activities" style="border-radius: 20px;"></div>
+                <div class="text-box" style="background-color: #ade3e9;border-radius: 20px;">
+                    <h3 class="lg-heading text-black lt-space">ACTIVITES</h3>
+                    <p class="text-gray">
+                      CRM  is the combination of practices, strategies and technologies that companies use to manage and analyze customer  </p>
                     
                 </div>
             </div>
             <div class="roww row3">
-                <div class="img-box"><img src="{% static 'images/ser.png' %}" alt="service" height="90" style="border-radius: 20px;"></div> 
+                <div class="img-box"><img src="{% static 'images/cc12.jpg' %}" alt="service" height="90" style="border-radius: 20px;"></div> 
                 <div class="text-box" style="background-color: #ade3e9;">
-                    <h2 class="lg-heading text-black lt-space">CRM service</h2>
-                    <p class="text-gray"> CRM (Customer Relationship Management) systems serve as a hub for organizing and making sense of valuable audience data and insights,.</p>
-                    <a href="" class="btn btn-secondary "> more</a>
+                    <h3 class="lg-heading text-black lt-space">Service</h3>
+                    <p class="text-gray"> CRM  systems serve as a hub for organizing and making sense of valuable audience data and insights</p>
+               
                 </div>
             </div>
             <div class="roww row4">
-                <div class="img-box"><img src="{% static 'images/soft.jpg' %}" alt="TYPE" style="border-radius: 20px;"></div>
+                <div class="img-box"><img src="{% static 'images/cc15.png' %}" alt="TYPE" style="border-radius: 20px;"></div>
                 <div class="text-box" style="background-color: #ade3e9;">
-                    <h2 class="lg-heading text-black lt-space">CRM TYPES</h2>
+                    <h3 class="lg-heading text-black lt-space">TYPES</h3>
                     <p class="text-gray">
-                      There are 3 types of customer relationship management software that you can use for your business: operational CRM, collaborative CRM, and analytical CRM</p>
-                    <a href="" class="btn btn-secondary "> more</a>
+                      There are 3 types of CRM software that you can use for your business: operational CRM, collaborative CRM, and analytical CRM</p>
+               
                 </div>
             </div>
         </div>
 
 </section>
 <div class="container container1">
-    <h1 class="heading"> CRM <span></span>SOFTWARE</h1> 
+   
      <div class="gallery">
          <div class="image">
-             <img src="./images/Sunil Chhetri.jpg" alt="">
-             <h1 class="text">Sunil Chhetri</h1>
+             <img src="{% static 'images/cc.jpg' %}" alt="">
+             
          </div>
          <div class="image">
-             <img src="./images/Cristiano Ronaldo.jpg" alt="">
-             <h1 class="text">Cristiano Ronaldo</h1>
+             <img src="{% static 'images/cc2.jpg' %}" alt="">
+            
          </div>
          <div class="image">
-             <img src="./images/Lionel Messi.jpg" alt="">
-             <h1 class="text">Lionel Messi</h1>
+             <img src="{% static 'images/cc3.jpg' %}" alt="">
+             
          </div>
      </div>
+     <div class="gallery">
+        <div class="image">
+            <img src="{% static 'images/cc4.jpg' %}" alt="">
+            
+        </div>
+        <div class="image">
+            <img src="{% static 'images/cc5.jpg' %}" alt="">
+           
+        </div>
+        <div class="image">
+            <img src="{% static 'images/cc6.jpg' %}" alt="" height="90">
+           
+        </div>
+    </div>
+    
 
     
 
@@ -255,6 +409,43 @@ span{
             ghostClass: 'bg-light'
         });
     });
+</script>
+<script>
+    var tl = gsap.timeline()
+
+
+tl.from("#nav",{
+    y:-100,
+    duration:0.6,
+    delay:0.5,
+    opacity:0,
+    stagger:0.5
+})
+
+tl.from(".elem h1, button",{
+    x:-100,
+    duration:0.4,
+    opacity:0,
+    blur:1,
+    stagger:0.5
+})
+
+tl.from("#imagediv",{
+    x:50,
+    duration:0.5,
+    opacity:0,
+    blur:1,
+    scale:0,
+    stagger:0.5
+})
+
+tl.from("#heroright p",{
+    x:100,
+    duration:0.4,
+    opacity:0,
+    blur:1,
+    stagger:0.5
+})
 </script>
 
 {% endblock %}
