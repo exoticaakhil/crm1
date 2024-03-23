@@ -3,15 +3,53 @@
 {% load static %}
 <style>
     body{
-    background-color: #71dae6;
+    background-color: #FFF3C7;
+}
+.content{
+    position: relative;
+  
+  
+}
+
+.content h1{
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 4em;
+}
+
+.content h1:nth-child(1){
+    color:transparent;
+    -webkit-text-stroke: 1px #080808;
+}
+
+.content h1:nth-child(2){
+    color: #0c0c0c;
+    animation: animate 4s ease-in-out infinite;
+}
+
+@keyframes animate
+{
+    0%, 100%{
+        clip-path: polygon(0% 45%, 15% 44%, 32% 50%, 54% 60%, 70% 61%, 84% 59%, 100% 52%, 100% 100%, 0% 100%);
+    }
+    50%{
+        clip-path: polygon(0% 60%, 16% 65%, 34% 66%, 51% 62%, 67% 50%, 84% 45%, 100% 46%, 100% 100%, 0% 100%);
+    }
 }
 </style>
 
 <main  style="min-height: 100vh;padding-top: 3%;">
    
     <div class="container ">
-        <h1 class="text-center text-dark">Archive</h1>
-    <hr style="border-color: rgb(255, 253, 253); ">
+        <div class="content">
+            <h1>Archive</h1>
+            <h1>Archive</h1>
+            
+        </div>
+    
+    
     <div class="row mt-3" style="padding-top: 5%;">
         {% for i in arch %}
     <div class="col-sm-4 mb-3">

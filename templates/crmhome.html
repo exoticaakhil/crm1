@@ -3,17 +3,14 @@
 {% load static %}
 
 <style>
-
-
-    /* Additional styling */
     .card {
         cursor: grab;
     }
     body{
-        background-color: #ACE2E1;
+        background-color: #FFF3C7;
     }
     .section{
-  background-color: #ACE2E1;;
+  background-color: #FFF3C7;
 
    
 }
@@ -232,16 +229,17 @@ html,body{
 }
 
 #heroleft .elem{
+    padding: 10%;
     height: 9vw;
-    overflow: hidden;
+  
 }
 
 #heroleft .elem h1{
     line-height: 0.9;
     font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     color: #faf8f8;
-    font-weight: 100;
-    font-size: 8vw;
+    font-weight: 90;
+    font-size: 4vw;
 }
 
 
@@ -256,8 +254,7 @@ html,body{
     width: 100%;
     height: 170px;
     margin-top: 20px;
-    margin-bottom: 30px;
-    background-image: url(./images/IMG_7565.JPG);
+    margin-bottom: 30px;;
     background-size: cover;
     background-position: center;
 }
@@ -278,6 +275,15 @@ html,body{
     text-align: right;
     font-weight: 300;
 }
+#img2 {  
+    width: 350px; 
+    float: left; 
+    margin-right: 10px; 
+  } 
+  #div { 
+    float: left; 
+    width: calc(100% - 350px - 10px); 
+  } 
 
 
 </style>
@@ -285,9 +291,11 @@ html,body{
 
 
 <main>
+    <br><br>
+
     <div id="main">
         <div id="back">
-            <img src="{% static 'images/crm.jpg' %}" >
+            <img src="{% static 'images/crm.jpg' %}" style="border-radius: 30px;">
         </div>
         <div id="top">
             <div id="workingarea">
@@ -295,21 +303,16 @@ html,body{
                 <div id="hero">
                     <div id="heroleft">
                         <div class="elem">
-                            <h1>Welcome to</h1>
+                            <h1></h1>
                         </div>
-                        <div class="elem">
-                            <h1>CRM</h1>
-                        </div>
-                       
-                        
                     </div>
                     <div id="heroright">
                         <p></p>
                         <div id="imagediv">
 
                         </div>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus exercitationem consequatur ex maiores voluptatibus quod magni sed doloremque incidunt fugiat.</p>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto at, quam aut aliquam eius quisquam commodi voluptate, recusandae ipsum ut numquam laboriosam consequatur.</p>
+                        <p style="font-size: larger;">WELCOME TO CRM</p>
+                        <p>CRM is a technology for managing all your company’s relationships and interactions with customers and potential customers. The goal is simple: Improve business relationships. A CRM system helps companies stay connected to customers, streamline processes, and improve profitability.</p>
                     </div>
                     
                 </div>
@@ -317,13 +320,14 @@ html,body{
         </div>
     </div>
     <br><br>
+    
 
     <section class="section" id="con">
         
         <div class="container">
             <div class="roww row1" >
                 <div class="img-box"><img src="{% static 'images/cc10.jpg' %}" alt="about" style="border-radius: 20px;"></div>
-                <div class="text-box" style="background-color: #ade3e9;">
+                <div class="text-box" style="background-color: #FFF3C7;border-radius: 20px;">
                     <h3 class="lg-heading text-black lt-space">About</h3>
                     <p class="text-gray"> CRM is a technology for managing all your company's relationships and interactions with customers </p>
                     
@@ -331,7 +335,7 @@ html,body{
             </div>
             <div class="roww row2">
                 <div class="img-box "><img src="{% static 'images/cc11.jpg' %}" alt="activities" style="border-radius: 20px;"></div>
-                <div class="text-box" style="background-color: #ade3e9;border-radius: 20px;">
+                <div class="text-box" style="background-color: #FFF3C7;border-radius: 20px;">
                     <h3 class="lg-heading text-black lt-space">ACTIVITES</h3>
                     <p class="text-gray">
                       CRM  is the combination of practices, strategies and technologies that companies use to manage and analyze customer  </p>
@@ -340,24 +344,23 @@ html,body{
             </div>
             <div class="roww row3">
                 <div class="img-box"><img src="{% static 'images/cc12.jpg' %}" alt="service" height="90" style="border-radius: 20px;"></div> 
-                <div class="text-box" style="background-color: #ade3e9;">
+                <div class="text-box" style="background-color: #FFF3C7;border-radius: 20px;">
                     <h3 class="lg-heading text-black lt-space">Service</h3>
                     <p class="text-gray"> CRM  systems serve as a hub for organizing and making sense of valuable audience data and insights</p>
-               
                 </div>
             </div>
             <div class="roww row4">
                 <div class="img-box"><img src="{% static 'images/cc15.png' %}" alt="TYPE" style="border-radius: 20px;"></div>
-                <div class="text-box" style="background-color: #ade3e9;">
+                <div class="text-box" style="background-color: #FFF3C7;border-radius: 20px;">
                     <h3 class="lg-heading text-black lt-space">TYPES</h3>
                     <p class="text-gray">
                       There are 3 types of CRM software that you can use for your business: operational CRM, collaborative CRM, and analytical CRM</p>
-               
                 </div>
             </div>
         </div>
 
 </section>
+
 <div class="container container1">
    
      <div class="gallery">
@@ -393,6 +396,7 @@ html,body{
     
 
  </div>
+ 
 </main>
 
 <script>

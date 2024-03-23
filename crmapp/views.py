@@ -6,6 +6,7 @@ from django.http import HttpResponse
 import json
 from django.http import JsonResponse
 from .models import App,Archive
+from django.contrib.auth.decorators import login_required
 # Create your views here.
 def crmhome(request):
     return render(request,'crmhome.html')
@@ -71,11 +72,9 @@ def signinpage(request):
         
 def crmcontact(request):
     return render(request,'crmcontact.html')
+@login_required(login_url='crmhome')
 def crmadditem(request):
     return render(request,'crmadditem.html')
-
-def crmpricing(request):
-    return render(request,'crmpricing.html')
 
 def log_out(request):
     auth.logout(request)
@@ -84,6 +83,7 @@ def log_out(request):
 def crmusernav(request):
     return render(request,'crmusernav.html')
 
+@login_required(login_url='crmhome')
 def crmloginpage(request):
      currentuser=request.user.username
      currentuser1=request.user
@@ -92,12 +92,14 @@ def crmloginpage(request):
      archived_app_ids = Archive.objects.values_list('app_id', flat=True)
      return render(request,'crmloginpage.html',{'currentuser':currentuser,'product':product,'archived_app_ids': archived_app_ids,'product1':product1})
 
+@login_required(login_url='crmhome')
 def crmarchive(request):
     currentuser=request.user.username
     return render(request,'crmarchive.html',{'currentuser':currentuser})
 
 def adminhome(request):
     return render(request,'adminhome.html')
+
 
 def appdetails(request):
     currentuser=request.user
@@ -115,6 +117,7 @@ def appdetails(request):
     else:
         return redirect('crmadditem')
     
+@login_required(login_url='crmhome')   
 def crmarchive(request):
     currentuser=request.user
     arch=Archive.objects.filter(user=currentuser)
