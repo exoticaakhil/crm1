@@ -7,10 +7,11 @@
         cursor: grab;
     }
     body{
-        background-color: #FFF3C7;
+        background-color: #DFF5FF;
     }
     .section{
-  background-color: #FFF3C7;
+  background-color: #DFF5FF;
+  border-radius: 20px;
 
    
 }
@@ -54,23 +55,25 @@
 
 .row4 .img-box,
 .row3 .text-box{
+    
     float: right;
     width: 50%;
 }
 
 .roww .img-box{
+    background-color: white;
     height: 100%;
 }
 .roww .text-box{
-    background-color: white;
+    
     height: 100%;
     padding: 2.5rem;
 }
 .roww .img-box img{
     display: inline-block;
-    width: 100%;
+ 
     height: 100%;
-    object-fit: cover;
+   
 }
 .roww::after{
     content: '';
@@ -135,23 +138,7 @@ span{
     filter: grayscale(100%);
 }
 
-.text{
-    position: absolute;
-    top: 85%;
-    left: 5%;
-    font-size: 1.4rem;
-    color: #f28482;
-    pointer-events: none;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    text-shadow: 
-      -1px -1px 1px #111, 
-      2px 2px 1px #363636;
-    background: #2d2d2d;
-    width: 90%;
-    text-align: center;
-    border-radius: 10px;
-}
+
 
 .image:hover{
     transform: rotate(0deg);
@@ -212,79 +199,69 @@ html,body{
     max-width: 1920px;
 }
 
-
-#hero{
+.container2 {
+    position: relative;
+  
+   
+  }
+  .image1 {
+   
+    object-fit: cover;
+    filter: blur(0);
+    transition: filter 0.5s ease;
+    margin-left: 10%;
+  }
+  .text {
     position: absolute;
     top: 50%;
-    left: 0;
-    transform: translate(0, -50%);
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: rgb(240, 132, 132);
+    background-color: #DFF5FF;
+    font-size: 30px;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    pointer-events: none; /* Allow mouse events to go through text */
+  }
+  .container2:hover .image1 {
+    filter: blur(5px);
+  }
+  .container2:hover .text {
+    opacity: 1;
+  }
+  .content{
+
+height: 40vh;
 
 }
 
-#heroleft{
-    min-width: 50%;
+.content h1{
+position: absolute;
+top: 10%;
+left: 50%;
+transform: translate(-50%, -50%);
+font-size: 4em;
 }
 
-#heroleft .elem{
-    padding: 10%;
-    height: 9vw;
-  
+.content h1:nth-child(1){
+color:transparent;
+-webkit-text-stroke: 1px #4f0b0b;
 }
 
-#heroleft .elem h1{
-    line-height: 0.9;
-    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    color: #faf8f8;
-    font-weight: 90;
-    font-size: 4vw;
+.content h1:nth-child(2){
+color: #ac2525;
+animation: animate 4s ease-in-out infinite;
 }
 
-
-
-#heroright p{
-    font-size: 14px;
-    text-align: right;
-    font-weight: 300;
+@keyframes animate
+{
+0%, 100%{
+    clip-path: polygon(0% 45%, 15% 44%, 32% 50%, 54% 60%, 70% 61%, 84% 59%, 100% 52%, 100% 100%, 0% 100%);
 }
-
-#heroright #imagediv{
-    width: 100%;
-    height: 170px;
-    margin-top: 20px;
-    margin-bottom: 30px;;
-    background-size: cover;
-    background-position: center;
+50%{
+    clip-path: polygon(0% 60%, 16% 65%, 34% 66%, 51% 62%, 67% 50%, 84% 45%, 100% 46%, 100% 100%, 0% 100%);
 }
-
-#heroright p:nth-child(3){
-    margin-bottom: 100px;
 }
-#heroright{
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    width: 17%;
-    color: #fff;
-}
-
-#heroright p{
-    font-size: 14px;
-    text-align: right;
-    font-weight: 300;
-}
-#img2 {  
-    width: 350px; 
-    float: left; 
-    margin-right: 10px; 
-  } 
-  #div { 
-    float: left; 
-    width: calc(100% - 350px - 10px); 
-  } 
-
 
 </style>
 
@@ -292,68 +269,85 @@ html,body{
 
 <main>
     <br><br>
+    <section class="section" id="con">
+        
 
-    <div id="main">
-        <div id="back">
-            <img src="{% static 'images/crm.jpg' %}" style="border-radius: 30px;">
-        </div>
-        <div id="top">
-            <div id="workingarea">
-                
-                <div id="hero">
-                    <div id="heroleft">
-                        <div class="elem">
-                            <h1></h1>
-                        </div>
-                    </div>
-                    <div id="heroright">
-                        <p></p>
-                        <div id="imagediv">
-
-                        </div>
-                        <p style="font-size: larger;">WELCOME TO CRM</p>
-                        <p>CRM is a technology for managing all your company’s relationships and interactions with customers and potential customers. The goal is simple: Improve business relationships. A CRM system helps companies stay connected to customers, streamline processes, and improve profitability.</p>
-                    </div>
+          <div class="container2">
+            <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+                <div class="carousel-inner">
+                  <div class="carousel-item active">
+                    <img class="image1 d-block w-75 " src="{% static 'images/crm.jpg' %}" style= "border-radius: 50px 25px 50px;" alt="First slide">
+                    <div class="text content">  
+                        <h1>CRM</h1>
+                        <h1>CRM</h1>
+                        
                     
+                  </div>
+                  </div>
+                  <div class="carousel-item">
+                    <img class="image1 d-block w-75" src="{% static 'images/ccc.jpg' %}" style= "border-radius: 50px 25px 50px; " alt="Second slide">
+                    <div class="text content">  
+                        <h1>CRM</h1>
+                        <h1>CRM</h1>
+                        
+                    
+                  </div>
+                  </div>
+                  </div>
+              
+                  </div>
                 </div>
-            </div>
+                <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                  <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                  <span class="sr-only">Next</span>
+                </a>
+              </div>
         </div>
-    </div>
+
+    
+    
+</section>
+   
+   
     <br><br>
     
 
     <section class="section" id="con">
         
-        <div class="container">
+        <div class="container" >
             <div class="roww row1" >
-                <div class="img-box"><img src="{% static 'images/cc10.jpg' %}" alt="about" style="border-radius: 20px;"></div>
-                <div class="text-box" style="background-color: #FFF3C7;border-radius: 20px;">
-                    <h3 class="lg-heading text-black lt-space">About</h3>
-                    <p class="text-gray"> CRM is a technology for managing all your company's relationships and interactions with customers </p>
+                <div class="img-box"><img class="d-block w-100" src="{% static 'images/cc10.jpg' %}" alt="about" style="border-radius: 0px 20px 20px 0px;"></div>
+                <div class="text-box" style="background-color: #ffffff;">
+                    <h3 class="lg-heading text-black lt-space" style="font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">About</h3>
+                    <p class="text-gray" style="font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;"> CRM is a technology for managing all your company's relationships and interactions with customers </p>
                     
                 </div>
             </div>
             <div class="roww row2">
-                <div class="img-box "><img src="{% static 'images/cc11.jpg' %}" alt="activities" style="border-radius: 20px;"></div>
-                <div class="text-box" style="background-color: #FFF3C7;border-radius: 20px;">
-                    <h3 class="lg-heading text-black lt-space">ACTIVITES</h3>
-                    <p class="text-gray">
+                <div class="img-box "><img class="d-block w-100" src="{% static 'images/cc11.jpg' %}" alt="activities" style="border-radius: 20px 0px 0px 20px;"></div>
+                <div class="text-box" style="background-color: #faf9f4;">
+                    <h3 class="lg-heading text-black lt-space" style="font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">ACTIVITY</h3>
+                    <p class="text-gray" style="font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">
                       CRM  is the combination of practices, strategies and technologies that companies use to manage and analyze customer  </p>
                     
                 </div>
             </div>
             <div class="roww row3">
-                <div class="img-box"><img src="{% static 'images/cc12.jpg' %}" alt="service" height="90" style="border-radius: 20px;"></div> 
-                <div class="text-box" style="background-color: #FFF3C7;border-radius: 20px;">
-                    <h3 class="lg-heading text-black lt-space">Service</h3>
-                    <p class="text-gray"> CRM  systems serve as a hub for organizing and making sense of valuable audience data and insights</p>
+                <div class="img-box"><img class="d-block w-100" src="{% static 'images/cc12.jpg' %}" alt="service" height="90"style="border-radius: 0px 20px 20px 0px;"></div> 
+                <div class="text-box" style="background-color: #ffffff;">
+                    <h3 class="lg-heading text-black lt-space" style="font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">Service</h3>
+                    <p class="text-gray" style="font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;"> CRM  systems serve as a hub for organizing and making sense of valuable audience data and insights</p>
                 </div>
             </div>
             <div class="roww row4">
-                <div class="img-box"><img src="{% static 'images/cc15.png' %}" alt="TYPE" style="border-radius: 20px;"></div>
-                <div class="text-box" style="background-color: #FFF3C7;border-radius: 20px;">
-                    <h3 class="lg-heading text-black lt-space">TYPES</h3>
-                    <p class="text-gray">
+                <div class="img-box"><img class="d-block w-100" src="{% static 'images/cc15.webp' %}" alt="TYPE" style="border-radius: 20px 0px 0px 20px;"></div>
+                <div class="text-box" style="background-color: #fdfdfd;">
+                    <h3 class="lg-heading text-black lt-space" style="font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">TYPES</h3>
+                    <p class="text-gray" style="font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">
                       There are 3 types of CRM software that you can use for your business: operational CRM, collaborative CRM, and analytical CRM</p>
                 </div>
             </div>

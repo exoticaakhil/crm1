@@ -1,9 +1,14 @@
 {% extends 'crmusernav.html' %}
 {% block content %}
 {% load static %}
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 <style>
 body{
-    background-color: #FFF3C7;
+    background-color: #DFF5FF;
 }
 .content{
 
@@ -80,7 +85,7 @@ body{
     {% for app in product1 %}
     {% if app.id not in archived_app_ids %}
     <div class="col-sm-2 mb-3">
-        <div class="card"  draggable="true" ondragstart="drag(event)" ondragend="dragEnd(event)" data-app-id="{{ app.id }}">
+        <div class="card"  draggable="true" ondragstart="drag(event)" ondragend="dragEnd(event)" data-app-id="{{ app.id }}" style="border-radius:15px 50px 30px;border-color: black; background-color: rgb(137, 15, 15);">
             <div class="card1" >
                 
                
@@ -91,7 +96,7 @@ body{
               </div>
             <div class="card-body" >
              
-                <h1 class="card-title text-warning">{{ app.name }}</h1>
+                <h1 class="card-title text-warning" style="font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">{{ app.name }}</h1>
                 <hr style="border-color: rgb(167, 127, 7); ">
                 <p class="card-text text-danger"><b style="font-size: 2rem;" class="text-warning">{{ app.price }}</b></p>
             </div>
@@ -104,7 +109,7 @@ body{
     {% for app in product %}
     {% if app.id not in archived_app_ids %}
     <div class="col-sm-2 mb-3">
-        <div class="card"  draggable="true" ondragstart="drag(event)" ondragend="dragEnd(event)" data-app-id="{{ app.id }}">
+        <div class="card"  draggable="true" ondragstart="drag(event)" ondragend="dragEnd(event)" data-app-id="{{ app.id }}" style="border-radius:15px 50px 30px;border-color: black;background-color: rgb(137, 15, 15);">
             <div class="card1" >
                 
                 <div class="delete-icon" style="display: none; ">
@@ -114,7 +119,7 @@ body{
               </div>
             <div class="card-body" >
              
-                <h1 class="card-title text-warning">{{ app.name }}</h1>
+                <h1 class="card-title text-warning" style="font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">{{ app.name }}</h1>
                 <hr style="border-color: rgb(167, 127, 7); ">
                 <p class="card-text text-danger"><b style="font-size: 2rem;" class="text-warning">{{ app.price }}</b></p>
             </div>
