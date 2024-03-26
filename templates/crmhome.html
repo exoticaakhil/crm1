@@ -140,6 +140,7 @@ span{
 
 
 
+
 .image:hover{
     transform: rotate(0deg);
 }
@@ -209,59 +210,31 @@ html,body{
     object-fit: cover;
     filter: blur(0);
     transition: filter 0.5s ease;
-    margin-left: 10%;
+    margin-left: 12.5%;
   }
-  .text {
+  .text1 {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    color: rgb(240, 132, 132);
-    background-color: #DFF5FF;
-    font-size: 30px;
+    color: rgb(251, 250, 250);
+
+    font-size: 60px;
     opacity: 0;
     transition: opacity 0.5s ease;
     pointer-events: none; /* Allow mouse events to go through text */
   }
   .container2:hover .image1 {
-    filter: blur(5px);
+    filter: blur(20px);
   }
-  .container2:hover .text {
+  .container2:hover .text1 {
     opacity: 1;
   }
-  .content{
-
-height: 40vh;
-
+ h1{
+font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  /* -webkit-text-stroke: 2px #080808; */
 }
 
-.content h1{
-position: absolute;
-top: 10%;
-left: 50%;
-transform: translate(-50%, -50%);
-font-size: 4em;
-}
-
-.content h1:nth-child(1){
-color:transparent;
--webkit-text-stroke: 1px #4f0b0b;
-}
-
-.content h1:nth-child(2){
-color: #ac2525;
-animation: animate 4s ease-in-out infinite;
-}
-
-@keyframes animate
-{
-0%, 100%{
-    clip-path: polygon(0% 45%, 15% 44%, 32% 50%, 54% 60%, 70% 61%, 84% 59%, 100% 52%, 100% 100%, 0% 100%);
-}
-50%{
-    clip-path: polygon(0% 60%, 16% 65%, 34% 66%, 51% 62%, 67% 50%, 84% 45%, 100% 46%, 100% 100%, 0% 100%);
-}
-}
 
 </style>
 
@@ -276,19 +249,19 @@ animation: animate 4s ease-in-out infinite;
             <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
                 <div class="carousel-inner">
                   <div class="carousel-item active">
-                    <img class="image1 d-block w-75 " src="{% static 'images/crm.jpg' %}" style= "border-radius: 50px 25px 50px;" alt="First slide">
-                    <div class="text content">  
-                        <h1>CRM</h1>
-                        <h1>CRM</h1>
+                    <img class="image1 d-block w-75 "  src="{% static 'images/crr.png' %}" style= "border-radius: 50px 25px 50px;" alt="First slide">
+                    <div class="text1 content">  
+                        <h1>Customer Relationship Management</h1>
+                        
                         
                     
                   </div>
                   </div>
                   <div class="carousel-item">
-                    <img class="image1 d-block w-75" src="{% static 'images/ccc.jpg' %}" style= "border-radius: 50px 25px 50px; " alt="Second slide">
-                    <div class="text content">  
-                        <h1>CRM</h1>
-                        <h1>CRM</h1>
+                    <img class="image1 d-block w-75" src="{% static 'images/crm.png' %}" style= "border-radius: 50px 25px 50px; " alt="Second slide">
+                    <div class="text1 content">  
+                        <h1>Customer Relationship Management</h1>
+                      
                         
                     
                   </div>
@@ -344,7 +317,7 @@ animation: animate 4s ease-in-out infinite;
                 </div>
             </div>
             <div class="roww row4">
-                <div class="img-box"><img class="d-block w-100" src="{% static 'images/cc15.webp' %}" alt="TYPE" style="border-radius: 20px 0px 0px 20px;"></div>
+                <div class="img-box"><img class="d-block w-100" src="{% static 'images/crm333.webp' %}" alt="TYPE" style="border-radius: 20px 0px 0px 20px;"></div>
                 <div class="text-box" style="background-color: #fdfdfd;">
                     <h3 class="lg-heading text-black lt-space" style="font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">TYPES</h3>
                     <p class="text-gray" style="font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">
