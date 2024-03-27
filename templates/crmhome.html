@@ -234,8 +234,225 @@ html,body{
 font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
   /* -webkit-text-stroke: 2px #080808; */
 }
+.do_section .heading_container {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-align: center;
+}
 
+.do_section .do_container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding-top: 10px;
+}
 
+.do_section .do_container .box {
+  text-align: center;
+  position: relative;
+  z-index: 5;
+  margin: 35px 25px 0 25px;
+}
+
+.do_section .do_container .box .img-box {
+  width: 120px;
+  height: 120px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: #353434;
+  border-radius: 100%;
+}
+
+.do_section .do_container .box .img-box img {
+  width: 70px;
+}
+
+.do_section .do_container .box .detail-box {
+  margin-top: 35px;
+}
+
+.do_section .do_container .box:hover .img-box {
+  background-color: #fec016;
+}
+
+.do_section .do_container .arrow_bg::before {
+  content: "";
+  position: absolute;
+  top: -23px;
+  left: -17px;
+  width: 262%;
+  height: 90%;
+  z-index: 3;
+  background-size: cover;
+}
+
+.do_section .do_container .arrow-start::before {
+    background-image: url('{% static 'images/arrow-start.png' %}');
+
+}
+
+.do_section .do_container .arrow-middle::before {
+    background-image: url('{% static 'images/arrow-middle.png' %}');
+}
+
+.do_section .do_container .arrow-end::before {
+    background-image: url('{% static 'images/arrow-end.png' %}');
+}
+.client_section {
+    width: 100%;
+    float: left;
+}
+
+.client_taital {
+    width: 100%;
+    float: left;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    color: #292828;
+    text-transform: uppercase;
+   
+    text-align: center;
+}
+
+.client_section_2 {
+    width: 60%;
+    margin: 0 auto;
+    margin-bottom: 20px;
+    padding-top: 90px;
+}
+
+.client_taital_box {
+    width: 100%;
+    float: left;
+    background-color: #ffffff;
+    height: auto;
+    padding: 0px 20px 30px 20px;
+    box-shadow: 0px 0px 10px 10px #ebebea;
+}
+
+.client_img {
+    width: 100%;
+    text-align: center;
+    position: relative;
+    top: -30px;
+}
+
+.moark_text {
+    width: 100%;
+    float: left;
+    font-size: 24px;
+    color: #1d1f1e;
+    font-weight: bold;
+    text-align: center;
+    padding: 0px 0px 20px 0px; 
+}
+
+.client_text {
+    width: 100%;
+    float: left;
+    font-size: 16px;
+    color: #282828;
+    margin: 0px;
+    text-align: center;
+}
+
+.quick_icon{
+    width: 100%;
+    float: left;
+    text-align: center;
+    margin-top: 50px;
+}
+.pricing-table {
+  background: #fff;
+  box-shadow: 0px 5px 20px 0px rgba(0, 0, 0, 0.1);
+  padding: 50px 0;
+  margin-bottom: 80px;
+}
+
+.pricing-table.featured .price p {
+  color: #067db4;
+}
+
+.pricing-table.featured .action-button .btn-main-rounded {
+  background:#DFF5FF;
+}
+
+.pricing-table .title {
+  margin-bottom: 30px;
+}
+
+.pricing-table .title h5 {
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+.pricing-table .price {
+  margin-bottom: 30px;
+}
+
+.pricing-table .price p {
+  font-size: 36px;
+  font-weight: bold;
+  color: #7d71d3;
+}
+
+.pricing-table .price p span {
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.pricing-table .action-button {
+  margin-top: 30px;
+}
+
+ul.feature-list {
+  margin: 0;
+  padding: 0;
+}
+
+ul.feature-list li {
+  list-style: none;
+  margin: 15px 0;
+  font-size: 16px;
+}
+.section-title {
+  text-align: center;
+  margin-bottom: 85px;
+}
+
+.section-title h2 {
+font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.section-title p {
+  width: 70%;
+  margin: 0 auto;
+  font-size: 16px;
+  line-height: 30px;
+}
+
+@media (max-width: 480px) {
+  .section-title p {
+    width: 100%;
+  }
+}
+.container-fluid
+ {
+  padding-left: 1.5rem;
+  padding-right: 1.5rem
+}
 </style>
 
 
@@ -284,6 +501,73 @@ font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     
     
 </section>
+<br>
+<br>
+<section class="do_section layout_padding">
+    <div class="container">
+      <div class="heading_container">
+        <h2 style="font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">
+          What we do
+        </h2>
+        <p style="font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">
+          The goal is to improve customer service relationships and assist with customer retention and drive sales growth
+        </p>
+      </div>
+      <div class="do_container">
+        <div class="box arrow-start arrow_bg">
+          <div class="img-box">
+            <img src="{% static 'images/d-1.jpeg' %}" alt="">
+          </div>
+          <div class="detail-box">
+            <h6>
+              Marketing
+            </h6>
+          </div>
+        </div>
+        <div class="box arrow-middle arrow_bg">
+          <div class="img-box">
+            <img src="{% static 'images/d-2.jpeg' %}" alt="">
+          </div>
+          <div class="detail-box">
+            <h6>
+            Inventory
+            </h6>
+          </div>
+        </div>
+        <div class="box arrow-middle arrow_bg">
+          <div class="img-box">
+            <img src="{% static 'images/d-3.jpg' %}" alt="">
+          </div>
+          <div class="detail-box">
+            <h6>
+             Oppurtunity
+            </h6>
+          </div>
+        </div>
+        <div class="box arrow-end arrow_bg">
+          <div class="img-box">
+            <img src="{% static 'images/d-4.png' %}" alt="">
+          </div>
+          <div class="detail-box">
+            <h6>
+             Lead Generation
+            </h6>
+          </div>
+        </div>
+        <div class="box ">
+          <div class="img-box">
+            <img src="{% static 'images/d-5.jpeg' %}" alt="">
+          </div>
+          <div class="detail-box">
+            <h6>
+              Customer Services
+            </h6>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
    
    
     <br><br>
@@ -358,12 +642,167 @@ font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
            
         </div>
     </div>
-    
+    <section class="pricing section bg-shape" id="pricing">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="section-title mb-4">
+                        <h2 >Choose Your Subscription Plan</h2>
+                        <p>Demoralized by the charms of pleasure of the moment, so blinded by desire, that they cannot foresee idea of
+                            denouncing pleasure and praising</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-4 col-md-6">
+                    <!-- Pricing Table -->
+    <div class="pricing-table text-center">	
+        <!-- Title -->
+        <div class="title">	
+            <h5>Free</h5>
+        </div>
+        <!-- Price Tag -->
+        <div class="price">	
+            <p>$0<span>/month</span></p>
+        </div>
+        <!-- Features -->
+        <ul class="feature-list">
+            <li>Android App</li>
+            <li>One time payment</li>
+            <li>Build & Publish</li>
+            <li>Life time support</li>
+        </ul>
+        <!-- Take Action -->
+        <div class="action-button">
+            <a href="" class="btn btn-main-rounded">Start Now</a>
+        </div>
+    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <!-- Pricing Table -->
+    <div class="pricing-table featured text-center">	
+        <!-- Title -->
+        <div class="title">	
+            <h5>Basic</h5>
+        </div>
+        <!-- Price Tag -->
+        <div class="price">	
+            <p>$19<span>/month</span></p>
+        </div>
+        <!-- Features -->
+        <ul class="feature-list">
+            <li>Android App</li>
+            <li>One time payment</li>
+            <li>Build & Publish</li>
+            <li>Life time support</li>
+        </ul>
+        <!-- Take Action -->
+        <div class="action-button">
+            <a href="" class="btn btn-main-rounded">Start Now</a>
+        </div>
+    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 m-md-auto">
+                    <!-- Pricing Table -->
+    <div class="pricing-table text-center">	
+        <!-- Title -->
+        <div class="title">	
+            <h5>Advance</h5>
+        </div>
+        <!-- Price Tag -->
+        <div class="price">	
+            <p>$99<span>/month</span></p>
+        </div>
+        <!-- Features -->
+        <ul class="feature-list">
+            <li>Android App</li>
+            <li>One time payment</li>
+            <li>Build & Publish</li>
+            <li>Life time support</li>
+        </ul>
+        <!-- Take Action -->
+        <div class="action-button">
+            <a href="" class="btn btn-main-rounded">Start Now</a>
+        </div>
+    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
     
-
+    <div class="client_section layout_padding">
+        <div class="container">
+           <div id="custom_slider" class="carousel slide" data-ride="carousel">
+              <div class="carousel-inner">
+                 <div class="carousel-item active">
+                    <div class="row">
+                       <div class="col-md-12">
+                          <h1 class="client_taital">What Says Customers</h1>
+                       </div>
+                    </div>
+                    <div class="client_section_2">
+                       <div class="row">
+                          <div class="col-md-6">
+                             <div class="client_taital_box">
+                                <div class="client_img"><img src="{% static 'images/client-img1.png' %}"></div>
+                                <h3 class="moark_text">Hannery</h3>
+                                <p class="client_text">It is a long established fact that a reader will be distracted by the readable content of a page</p>
+                             </div>
+                             <div class="quick_icon"><img src="{% static 'images/quick-icon.png' %}"></div>
+                          </div>
+                          <div class="col-md-6">
+                             <div class="client_taital_box">
+                                <div class="client_img"><img src="{% static 'images/client-img2.png' %}"></div>
+                                <h3 class="moark_text">Channery</h3>
+                                <p class="client_text">It is a long established fact that a reader will be distracted by the readable content of a page</p>
+                             </div>
+                             <div class="quick_icon"><img src="{% static 'images/quick-icon.png' %}"></div>
+                          </div>
+                       </div>
+                    </div>
+                 </div>
+                 <div class="carousel-item">
+                    <div class="row">
+                       <div class="col-md-12">
+                          <h1 class="client_taital">What Says Customers</h1>
+                       </div>
+                    </div>
+                    <div class="client_section_2">
+                       <div class="row">
+                          <div class="col-md-6">
+                             <div class="client_taital_box">
+                                <div class="client_img"><img src="{% static 'images/client-img1.png' %}"></div>
+                                <h3 class="moark_text">Hannery</h3>
+                                <p class="client_text">It is a long established fact that a reader will be distracted by the readable content of a page</p>
+                             </div>
+                             <div class="quick_icon"><img src="{% static 'images/quick-icon.png' %}"></div>
+                          </div>
+                          <div class="col-md-6">
+                             <div class="client_taital_box">
+                                <div class="client_img"><img src="{% static 'images/client-img2.png' %}"></div>
+                                <h3 class="moark_text">Channery</h3>
+                                <p class="client_text">It is a long established fact that a reader will be distracted by the readable content of a page</p>
+                             </div>
+                             <div class="quick_icon"><img src="{% static 'images/quick-icon.png' %}"></div>
+                          </div>
+                       </div>
+                    </div>
+                 </div>
+              </div>
+              <a class="carousel-control-prev" href="#custom_slider" role="button" data-slide="prev">
+              <i class="fa fa-angle-left"></i>
+              </a>
+              <a class="carousel-control-next" href="#custom_slider" role="button" data-slide="next">
+              <i class="fa fa-angle-right"></i>
+              </a>
+           </div>
+        </div>
+     </div>
+                 
  </div>
- 
+
+     
 </main>
 
 <script>

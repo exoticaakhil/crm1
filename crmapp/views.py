@@ -28,6 +28,7 @@ def register(request):
         username=request.POST['username']
         email=request.POST['email']
         password=request.POST['password']
+  
         
         if User.objects.filter(username=username).exists():
                 messages.info(request,'Username exists')
@@ -37,18 +38,18 @@ def register(request):
                 return redirect('crmregister')
         
         else :
-            user=User.objects.create_user(first_name=firstname,last_name=lastname,username=username,email=email,password=password)
+            user=User.objects.create_user(first_name=firstname,last_name=lastname,username=username,email=email,password=password,)
             user.save()
             messages.success(request,'Registration Successfull')
             if App.objects.exists():
                 pass
             else:
         
-                app1 = App(name="HP", price=600)
+                app1 = App(name="HP", price=600,image='image/hp.png')
                 app1.save()
-                app2 = App(name="DELL", price=500)
+                app2 = App(name="DELL", price=500,image='image/dell.png')
                 app2.save()
-                app3 = App(name="ASUSE", price=750)
+                app3 = App(name="ASUSE", price=750,image='image/asuse.png')
                 app3.save()
                 
             return redirect('crmsignin')
@@ -106,8 +107,13 @@ def appdetails(request):
     if request.method=='POST':
         name=request.POST['name']
         price=request.POST['price']
+        if 'file' in request.FILES:
+            photo = request.FILES['file']
+        else:
+            
+            photo = 'image/download.png'
         
-        data=App(name=name,price=price,user=currentuser)
+        data=App(name=name,price=price,user=currentuser,image=photo)
         data.save()
         if 'Next' in request.POST:
             return redirect('crmadditem')
