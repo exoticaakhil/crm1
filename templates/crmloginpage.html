@@ -24,6 +24,7 @@
 <style>
 body{
     background-color: #DFF5FF;
+    background-image: url({% static 'images/hero-bg.jpg' %});
 }
 .content{
 
@@ -31,21 +32,21 @@ body{
   
 }
 
-.content h1{
+.content h3{
     position: absolute;
     top: 10%;
     left: 50%;
     transform: translate(-50%, -50%);
-    font-size: 4em;
+    font-size: 2em;
 }
 
-.content h1:nth-child(1){
+.content h3:nth-child(1){
     color:transparent;
-    -webkit-text-stroke: 1px #080808;
+    -webkit-text-stroke: 1px #fefefe;
 }
 
-.content h1:nth-child(2){
-    color: #0c0c0c;
+.content h3:nth-child(2){
+    color: #fcf7f7;
     animation: animate 4s ease-in-out infinite;
 }
 
@@ -211,7 +212,7 @@ body{
     width: 100%;
     float: left;
     height: auto;
-    background-color: #363636;
+    background-color: rgb(39, 35, 35);
     background-size: 100%;
     padding: 50px 0px;
 }
@@ -253,20 +254,7 @@ body{
     margin: 0px;
 }
 
-.social_icon {
-    width: 100%;
-    float: left;
-    margin-top: 10px;
-}
 
-.social_icon ul {
-    margin: 0px;
-    padding: 0px;
-}
-
-.social_icon li {
-    float: left;
-}
 
 .social_icon li a {
     float: left;
@@ -324,7 +312,7 @@ textarea#comment::placeholder {
 }
 
 .subscribe_bt a:hover {
-    color: #363636;
+    color: rgb(39, 35, 35);
     background-color: #ffffff;
 }
 
@@ -358,7 +346,7 @@ textarea#comment::placeholder {
 .copyright_section {
     width: 100%;
     float: left;
-    background-color: #363636;
+    background-color: rgb(39, 35, 35);
     height: auto;
 }
 
@@ -382,6 +370,152 @@ textarea#comment::placeholder {
 .row{
     margin: 0%;
 }
+
+.container3 {
+  position: relative;
+
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  transform-style: preserve-3d;
+  perspective: 500px;
+  margin: auto;
+}
+.container3 .box3 {
+  position: relative;
+  width: 275px;
+  height: 275px;
+  background: #000;
+  transition: 0.5s;
+  transform-style: preserve-3d;
+  overflow: hidden;
+  margin-right: 15px;
+  margin-top: 45px;
+}
+.container3:hover .box3 {
+  transform: rotateY(25deg);
+}
+.containe3r .box3:hover ~ .box3 {
+  transform: rotateY(-25deg);
+}
+.container3 .box3:hover {
+  transform: rotateY(0deg) scale(1.25);
+  z-index: 1;
+  box-shadow: 0 25px 40px rgba(0,0,0,0.5);
+}
+.container3 .box3 .imgBx {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+.container3 .box3 .imgBx:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(180deg,#f00,#000);
+  z-index: 1;
+  opacity: 0;
+  transition: 0.5s;
+  mix-blend-mode: multiply;
+}
+.container3 .box3:hover .imgBx:before {
+  opacity: 1;
+}
+.container3 .box3 .imgBx .img4 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.container3 .box3 .content3 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  display: flex;
+  padding: 20px;
+  align-items: flex-end;
+  box-sizing: border-box;
+}
+.container3 .box3 .content3 h2 {
+  color: #fff;
+  transition: 0.5s;
+  text-transform: uppercase;
+  margin-bottom: 5px;
+  font-size: 20px;
+  transform: translateY(200px);
+  transition-delay: 0.3s;
+}
+.container3 .box3:hover .content3 h2 {
+  transform: translateY(0px);
+}
+.container3 .box3 .content3 p {
+  color: #fff;
+  transition: 0.5s;
+  font-size: 14px;
+  transform: translateY(200px);
+  transition-delay: 0.4s;
+}
+.container3 .box3:hover .content3 p {
+  transform: translateY(0px);
+}
+.carousel{
+  margin-top: 150px;
+  margin-bottom: 150px;
+}
+.carousel-inner1{
+  height: 230px;
+}
+.carousel-caption{
+  color: #fff;
+  top: 50%;
+}
+.graph-container {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    width: 100%;
+    height: 400px; /* Adjust the height as needed */
+  }
+
+  .graph {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-right: 4%; /* Add spacing between graphs */
+    
+  }
+
+  .y-axis {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 400px;
+    color: rgb(246, 243, 243);
+ 
+  }
+
+  .bar {
+    width: 20px; /* Adjust the width of the bars */
+    /* border-top-left-radius: 15px; */
+    /* border-top-right-radius: 15px; */
+    background-color: #1a8edc6e; /* Change the color of the bars if needed */
+    margin-bottom: 5px; /* Add spacing between bars */
+    
+  }
+
+
+
+
 @import url('https://fonts.googleapis.com/css2?family=Fira+Sans+Extra+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');@import url('https://fonts.googleapis.com/css2?family=Heebo:wght@100;200;300;400;500;600;700;800;900&display=swap');@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');:root{--font1: 'Heebo', sans-serif;--font2: 'Fira Sans Extra Condensed', sans-serif;--font3: 'Roboto', sans-serif}body{font-family: var(--font3);}h2{font-weight: 900}.container-fluid{max-width: 1200px}.card{background: #fff;box-shadow: 0 6px 10px rgba(0, 0, 0, .08), 0 0 6px rgba(0, 0, 0, .05);transition: .3s transform cubic-bezier(.155, 1.105, .295, 1.12), .3s box-shadow, .3s -webkit-transform cubic-bezier(.155, 1.105, .295, 1.12);border: 0;border-radius: 1rem}.card-img, .card-img-top{border-top-left-radius: calc(1rem - 1px);border-top-right-radius: calc(1rem - 1px)}.card h5{overflow: hidden;height: 56px;font-weight: 900;font-size: 1rem}.card-img-top{width: 100%;max-height: 180px;object-fit: contain;padding: 30px}.card h2{font-size: 1rem}.card:hover{transform: scale(1.05);box-shadow: 0 10px 20px rgba(0, 0, 0, .12), 0 4px 8px rgba(0, 0, 0, .06)}.label-top{position: absolute;background-color: #8bc34a;color: #fff;top: 8px;right: 8px;padding: 5px 10px 5px 10px;font-size: .7rem;font-weight: 600;border-radius: 3px;text-transform: uppercase}.top-right{position: absolute;top: 24px;left: 24px;width: 90px;height: 90px;border-radius: 50%;font-size: 1rem;font-weight: 900;background: #ff5722;line-height: 90px;text-align: center;color: white}.top-right span{display: inline-block;vertical-align: middle}@media (max-width: 768px){.card-img-top{max-height: 250px}}.over-bg{background: rgba(53, 53, 53, 0.85);box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);backdrop-filter: blur(0.0px);-webkit-backdrop-filter: blur(0.0px);border-radius: 10px}.btn{font-size: 1rem;font-weight: 500;text-transform: uppercase;padding: 5px 50px 5px 50px}.box .btn{font-size: 1.5rem}@media (max-width: 1025px){.btn{padding: 5px 40px 5px 40px}}@media (max-width: 250px){.btn{padding: 5px 30px 5px 30px}}.btn-warning{background: none #f7810a;color: #ffffff;fill: #ffffff;border: none;text-decoration: none;outline: 0;box-shadow: -1px 6px 19px rgba(247, 129, 10, 0.25);border-radius: 100px}.btn-warning:hover{background: none #ff962b;color: #ffffff;box-shadow: -1px 6px 13px rgba(255, 150, 43, 0.35)}.bg-success{font-size: 1rem;background-color: #f7810a !important}.bg-danger{font-size: 1rem}.price-hp{font-size: 1rem;font-weight: 600;color: darkgray}.amz-hp{font-size: .7rem;font-weight: 600;color: darkgray}.fa-question-circle:before{color: darkgray}.fa-plus:before{color: darkgray}.box{border-radius: 1rem;background: #fff;box-shadow: 0 6px 10px rgb(0 0 0 / 8%), 0 0 6px rgb(0 0 0 / 5%);transition: .3s transform cubic-bezier(.155, 1.105, .295, 1.12), .3s box-shadow, .3s -webkit-transform cubic-bezier(.155, 1.105, .295, 1.12)}.box-img{max-width: 300px}.thumb-sec{max-width: 300px}@media (max-width: 576px){.box-img{max-width: 200px}.thumb-sec{max-width: 200px}}.inner-gallery{width: 60px;height: 60px;border: 1px solid #ddd;border-radius: 3px;margin: 1px;display: inline-block;overflow: hidden;-o-object-fit: cover;object-fit: cover}@media (max-width: 370px){.box .btn{padding: 5px 40px 5px 40px;font-size: 1rem}}.disclaimer{font-size: .9rem;color: darkgray}.related h3{font-weight: 900}footer{background: #212529;height: 80px;color: #fff}
 </style>
 </head>
@@ -415,12 +549,207 @@ textarea#comment::placeholder {
     </div>
     <div class="ope"><button class="openbtn" onclick="openNav()">☰ Open Sidebar</button></div>
     
-    <div class="content">
-        <h1>ITEM</h1>
-        <h1>ITEM</h1>
+    <div class="content" >
+        <h3>DASBOARD</h3>
+        <h3>DASBOARD</h3>
         
     </div>
-<main> <div class="container-fluid bg-trasparent my-4 p-3" style="position: relative;"> 
+    
+    <div class="row m-2">
+        <div class="col-md-9 mr-3">
+            <div class="row">
+                <div class="col-md-4 my-3 p-2 mr-md-2" style="border-radius: 15px;background-color: rgb(39, 35, 35);box-shadow: 1px 2px 4px rgb(241, 240, 240);"><div class="row"><div class="col-4"><img src="{% static 'images/pie-chart.jpeg' %}" width="70" height="70"></div> <div class="col mt-2" style="color: #DFF5FF;font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">Revenue <br> $45,876 <span class="ml-4 px-2 py-1" style="color: rgb(255, 255, 255);background-color: rgba(10, 220, 10, 0.37);font-size: small;border-radius: 15px;">+ 17.6%</span></div> </div></div>
+                <div class="col-md-3 my-3 p-2 mx-md-3" style="border-radius: 15px;background-color: rgb(39, 35, 35);box-shadow: 1px 2px 4px rgb(248, 247, 247);"><div class="row"><div class="col-4"><img src="{% static 'images/order.webp' %}" width="70" height="70"></div> <div class="col mt-2"  style="color: #DFF5FF;font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">Orders <br> 6586 <span class="ml-3 px-2 py-1" style="color: rgb(255, 255, 255);background-color: rgba(255, 0, 0, 0.3);font-size: small;border-radius: 15px;">- 0.6%</span></div> </div></div>
+                <div class="col-md-4 my-3 p-2 ml-md-2" style="border-radius: 15px;background-color: rgb(39, 35, 35);box-shadow: 1px 2px 4px rgb(241, 240, 240);"><div class="row"><div class="col-4"><img src="{% static 'images/cous.png' %}" width="70" height="70"></div> <div class="col mt-2" style="color: #DFF5FF;font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">Customers <br> 4876 <span class="ml-5 px-2 py-1" style="color: rgb(255, 255, 255);background-color: rgba(255, 0, 0, 0.3);font-size: small;border-radius: 15px;">- 0.4%</span></div> </div></div>
+            </div>
+    
+            
+            <div class="row my-3" style="border-radius: 15px;min-height: 10vh;background-color: rgb(39, 35, 35);box-shadow: 1px 2px 4px gray;">
+    
+                
+    
+            
+                <div class="col-md-3 my-3" style="border-radius: 15px;">                
+                        <h6 style="color: gray;font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;"">Last Month</h6>                    
+                        <p style="font-size: x-large;font-weight: 500;color: #DFF5FF;">$48,996  <span style="color: green;font-size: large;">+ 12.74%</span></p> 
+                        <div class="row mt-2" style="height: 25%;">
+                            <div class="col border-bottom border-right"><p style="color: gray;">Orders</p><p style="font-weight: 500;color: #DFF5FF;">$5,684</p></div>
+                            <div class="col border-bottom"><p style="color: gray;">Sales</p><p style="font-weight: 500;color: #DFF5FF">$18,567</p></div>
+                        </div>
+                        <div class="row" style="height: 25%;">
+                            <div class="col border-right"><p style="color: gray;">Income</p><p style="font-weight: 500;color: #DFF5FF">$69,554</p></div>
+                            <div class="col"><p style="color: gray;">Expense</p><p style="font-weight: 500;color: #DFF5FF">$26,590</p></div>
+                        </div>
+                </div>
+                <div class="col-md-9 my-3 table-responsive" style="border-radius: 15px;">                
+                    
+                    <div class="graph-container">
+                        
+                        <div class="graph-line">
+                          <div class="y-axis" st>
+                            <div class="mark" style="background-color: rgb(39, 35, 35);">100%</div>
+                            <div class="mark" style="background-color: rgb(39, 35, 35);">80%</div>
+                            <div class="mark" style="background-color: rgb(39, 35, 35);">60%</div>
+                            <div class="mark" style="background-color: rgb(39, 35, 35);">40%</div>
+                            <div class="mark" style="background-color: rgb(39, 35, 35);">20%</div>
+                            <div ></div>
+                          </div>
+                          
+                          
+                        </div>
+                        <div class="graph" >
+                            <div class="bars ml-4"><P style="color: #ddd;">jan</P>
+                              <div class="bar" style="height: 240px;"></div>
+                            </div>
+                          </div>
+                        
+                        <div class="graph">
+                          <div class="bars"><P style="color: #ddd;">Feb</P>
+                            <div class="bar" style="height: 190px;">&nbsp;</div>
+                          </div>
+                        </div>
+                        <div class="graph">
+                          <div class="bars"><P style="color: #ddd;">Mar</P>
+                            <div class="bar" style="height: 160px;">&nbsp;</div>
+                          </div>
+                        </div>
+                        <div class="graph">
+                          <div class="bars"><P style="color: #ddd;">Apr</P>
+                            <div class="bar" style="height: 110px;">&nbsp;</div>
+                          </div>
+                        </div>
+                        <div class="graph">
+                            <div class="bars"><P style="color: #ddd;">May</P>
+                              <div class="bar" style="height: 340px;">&nbsp;</div>
+                            </div>
+                        </div>
+                        <div class="graph">
+                            <div class="bars"><P style="color: #ddd;">jun</P>
+                              <div class="bar" style="height: 230px;">&nbsp;</div>
+                            </div>
+                        </div>
+                        <div class="graph">
+                            <div class="bars"><P style="color: #ddd;">jul</P>
+                              <div class="bar" style="height: 230px;">&nbsp;</div>
+                            </div>
+                        </div>
+                        <div class="graph">
+                            <div class="bars"><P style="color: #ddd;">Aug</P>
+                              <div class="bar" style="height: 250px;">&nbsp;</div>
+                            </div>
+                        </div>
+                        <div class="graph">
+                            <div class="bars"><P style="color: #ddd;">Sep</P>
+                              <div class="bar" style="height: 230px;">&nbsp;</div>
+                            </div>
+                        </div>
+                        <div class="graph">
+                            <div class="bars"><P style="color: #ddd;">Oct</P>
+                              <div class="bar" style="height: 110px;">&nbsp;</div>
+                            </div>
+                        </div>
+                        <div class="graph">
+                            <div class="bars"><P style="color: #ddd;">Nov</P>
+                              <div class="bar" style="height: 200px;">&nbsp;</div>
+                            </div>
+                        </div>
+                        <div class="graph">
+                            <div class="bars"><P style="color: #ddd;">Dec</P>
+                              <div class="bar" style="height: 300px;">&nbsp;</div>
+                            </div>
+                        </div>
+                       
+                      </div>
+    
+                    
+                      
+                </div>
+                
+                        
+                   
+                   
+                </div>
+            </div>
+            <div class="col-md mt-3 ml-2" style="border-radius: 15px;min-height: 70vh;background-color: rgb(43, 38, 38);box-shadow: 1px 2px 4px gray;margin-right: 2%;">
+                
+                <div class="row d-flex justify-content-center" >
+                    
+                    <h1 style="color: #DFF5FF;font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">{{currentuser}}</h1>
+                    <h5 style="color: #f60404;font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">List of item Created</h5>
+                   
+                </div>
+                
+                <table class="table">
+                    <thead class="thead text-white">
+                      <tr >
+                        <th scope="col"><h2 style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">Item</h2></th>
+                        <th scope="col"><h2  style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">Price</h2></th>
+                        
+                      </tr>
+                    </thead>
+                    <tbody class="text-white">
+                        {% for app in product %}
+    
+                      <tr>
+                        
+                        <td scope="row">{{app.name}}</td>
+                        <td>${{app.price}}</td>
+                        
+                      </tr>
+                      {% endfor %}
+                    </tbody>
+                  </table>
+            </div>
+        </div>
+        
+
+    <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner1">
+          <div class="carousel-item active">
+            <div class="carousel-caption">
+              <h3>Welcome To CRM</h3>
+              <p>CRM software lets you store customer and prospect contact information, identify sales opportunities, record service issues, and manage marketing campaignsct us
+               <br>
+               <br>
+                <a href="#footer">
+                    Contact us
+                  </a></p>
+              
+            </div>
+          </div>
+          <div class="carousel-item">
+            <div class="carousel-caption">
+                <h3>What is CRM</h3>
+            
+              <p>Customer relationship management (CRM) is a technology for managing all your company’s relationships and interactions with customers and potential customers<br> <a href="#footer">
+                Contact us
+              </a></p>
+                
+            </div>
+          </div>
+          <div class="carousel-item">
+            <div class="carousel-caption">
+                 <h3>Who is CRM</h3>
+                 
+                <p>A CRM system gives everyone — from sales, customer service, business development, recruiting, marketing, or any other line of business — a better way to manage the external interactions and relationships that drive success<br> <a href="#footer">
+                  Contact us
+                </a></p>
+                
+            </div>
+          </div>
+          
+        <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+          </span>
+          <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+       
+          <span class="sr-only">Next</span>
+        </a>
+      </div>
+    
+<main> 
+    <div class="container-fluid bg-trasparent my-4 p-3 mt-2" style="position: relative;"> 
     <div class="row row-cols-1 row-cols-xs-2 row-cols-sm-2 row-cols-lg-4 g-3">
          <div class="col"> <div class="card h-100 shadow-sm"> 
             <img src="https://www.freepnglogos.com/uploads/notebook-png/download-laptop-notebook-png-image-png-image-pngimg-2.png" class="card-img-top" alt="...">
@@ -439,7 +768,7 @@ textarea#comment::placeholder {
                 </div> 
             </div> 
         </div> 
-        <div class="col">
+        <div class="col mt-2">
              <div class="card h-100 shadow-sm">
                  <img src="https://www.freepnglogos.com/uploads/notebook-png/notebook-laptop-png-images-you-can-download-mashtrelo-14.png" class="card-img-top" alt="...">
                  <div class="label-top shadow-sm">THOSIBA</div>
@@ -459,7 +788,7 @@ textarea#comment::placeholder {
                     </div>
                  </div>
                  </div> 
-                 <div class="col">
+                 <div class="col mt-2">
                      <div class="card h-100 shadow-sm"> 
                         <img src="https://www.freepnglogos.com/uploads/notebook-png/download-laptop-notebook-png-image-png-image-pngimg-2.png" class="card-img-top" alt="..."> 
                         <div class="label-top shadow-sm">Asus Rog</div>
@@ -478,7 +807,7 @@ textarea#comment::placeholder {
                                  </div>
                                  </div>
                                  </div> 
-                                 <div class="col"> 
+                                 <div class="col mt-2"> 
                                     <div class="card h-100 shadow-sm"> 
                                         <img src="https://www.freepnglogos.com/uploads/notebook-png/notebook-laptop-png-images-you-can-download-mashtrelo-14.png" class="card-img-top" alt="..."> 
                                         <div class="label-top shadow-sm">DELL</div>
@@ -501,8 +830,44 @@ textarea#comment::placeholder {
                                                  </div>
                                                  </div>
                                                  </main>
-      
-<div class="row " id="card-container" style="border-radius: 20px;" >
+                                                 <div class="container3">
+                                                    <div class="box3">
+                                                      <div class="imgBx">
+                                                        <img class="img4" src="https://www.sagesoftware.co.in/wp-content/uploads/2022/05/crm-product-banner.jpg">
+                                                      </div>
+                                                      <div class="content3">
+                                                        <div>
+                                                          <h2>CRM</h2>
+                                                          <p>The goal is simple: Improve business relationships. A CRM system helps companies stay connected to customers
+                                                          </p>
+                                                        </div>
+                                                      </div>
+                                                    </div>
+                                                    <div class="box3">
+                                                      <div class="imgBx">
+                                                        <img src="https://wp.static-cdn-shsp.com/wp-content/uploads/2020/08/shutterstock_444276529-scaled.jpg" width="100%" height="100%">
+                                                      </div>
+                                                      <div class="content3">
+                                                        <div>
+                                                            <h2>Features</h2>
+                                                            <p>A CRM solution opens up amazing opportunities for small businesses and large enterprises alike to thrive. Now more than ever, businesses need to expertly manage prospects and existing customers with great car</P>
+                                                        </div>
+                                                      </div>
+                                                    </div>
+                                                    <div class="box3">
+                                                      <div class="imgBx">
+                                                        <img src="https://www.wearecatalyst.co.uk/wp-content/uploads/2023/03/cat_blog-headers-latest_1000x706_CRM-1.jpg"width="100%" height="100%">
+                                                      </div>
+                                                      <div class="content3">
+                                                        <div>
+                                                            <h2>Functionality</h2>
+                                                            <p>Working with customers can be a challenging task. Keeping up with contacts, correctly diagnosing problems and ensuring satisfaction as well as positive interactions can feel like the weight of the world
+                                                      </div>
+                                                    </div>
+                                                    
+                                                  </div>
+                                             
+<div class="row " id="card-container" style="border-radius: 20px;justify-content: center;margin-top: 5%;" >
     {% for app in product1 %}
     {% if app.id not in archived_app_ids %}
     <div class="col-sm-2 mb-3">
@@ -559,7 +924,7 @@ textarea#comment::placeholder {
     
    
 </main>
-<div class="footer_section layout_padding">
+<div class="footer_section layout_padding" id="footer">
     <div class="container">
        <div class="row">
           <div class="col-md-12">
@@ -595,34 +960,28 @@ textarea#comment::placeholder {
                 <div class="location_text"><a href="#"><i class="fa fa-envelope" aria-hidden="true"></i><span class="padding_left_15">demo@gmail.com</span></a></div>
                 <div class="social_icon">
                    <ul>
-                    <a data-mdb-ripple-init class="btn btn-outline btn-floating m-1" href="#!" role="button"
-              ><i class="fab fa-facebook-f"></i
-            ></a>
-      
-            <!-- Twitter -->
-            <a data-mdb-ripple-init class="btn btn-outline btn-floating m-1" href="#!" role="button"
-              ><i class="fab fa-twitter"></i
-            ></a>
-      
-            <!-- Google -->
-            <a data-mdb-ripple-init class="btn btn-outline btn-floating m-1" href="#!" role="button"
-              ><i class="fab fa-google"></i
-            ></a>
-      
-            <!-- Instagram -->
-            <a data-mdb-ripple-init class="btn btn-outline btn-floating m-1" href="#!" role="button"
-              ><i class="fab fa-instagram"></i
-            ></a>
-      
-            <!-- Linkedin -->
-            <a data-mdb-ripple-init class="btn btn-outline btn-floating m-1" href="#!" role="button"
-              ><i class="fab fa-linkedin-in"></i
-            ></a>
-      
-            <!-- Github -->
-            <a data-mdb-ripple-init class="btn btn-outline btn-floating m-1" href="#!" role="button"
-              ><i class="fab fa-github"></i
-            ></a>
+                    <i class="fab fa-facebook-f text-white"></i
+                        >
+                  
+                        <!-- Twitter -->
+                        <i class="fab fa-twitter text-white"></i
+                        >
+                  
+                        <!-- Google -->
+                        <i class="fab fa-google text-white"></i
+                        >
+                  
+                        <!-- Instagram -->
+                       <i class="fab fa-instagram text-white"></i
+                        >
+                  
+                        <!-- Linkedin -->
+                        <i class="fab fa-linkedin-in text-white"></i
+                        >
+                  
+                        <!-- Github -->
+                        <i class="fab fa-github text-white"></i
+                        >
                    </ul>
                 </div>
              </div>

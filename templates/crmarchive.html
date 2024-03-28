@@ -10,11 +10,7 @@
 <style>
     body{
     background-color: #DFF5FF;
-}
-.content{
-
-height: 25vh;
-
+    background-image: url({% static 'images/hero-bg.jpg' %});
 }
 
 .content h1{
@@ -27,11 +23,11 @@ height: 25vh;
 
 .content h1:nth-child(1){
     color:transparent;
-    -webkit-text-stroke: 1px #080808;
+    -webkit-text-stroke: 1px #ffffff;
 }
 
 .content h1:nth-child(2){
-    color: #0c0c0c;
+    color: #ffffff;
     animation: animate 4s ease-in-out infinite;
 }
 
@@ -186,7 +182,6 @@ textarea#comment::placeholder {
 }
 
 
-
 /* footer section end */
 
 
@@ -216,6 +211,113 @@ textarea#comment::placeholder {
 .copyright_text a:hover {
     color: #fe5b29;
 }
+@import url('https://fonts.googleapis.com/css2?family=Fira+Sans+Extra+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');@import url('https://fonts.googleapis.com/css2?family=Heebo:wght@100;200;300;400;500;600;700;800;900&display=swap');@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+:root{--font1: 'Heebo', sans-serif;--font2: 'Fira Sans Extra Condensed', sans-serif;--font3: 'Roboto', sans-serif}
+body{font-family: var(--font3);}
+h2{font-weight: 900}
+.container-fluid{max-width: 1200px}
+.card{background: #fff;box-shadow: 0 6px 10px rgba(0, 0, 0, .08), 0 0 6px rgba(0, 0, 0, .05);transition: .3s transform cubic-bezier(.155, 1.105, .295, 1.12), .3s box-shadow, .3s -webkit-transform cubic-bezier(.155, 1.105, .295, 1.12);border: 0;border-radius: 1rem}
+.card-img, .card-img-top{border-top-left-radius: calc(1rem - 1px);border-top-right-radius: calc(1rem - 1px)}.card h5{overflow: hidden;height: 56px;font-weight: 900;font-size: 1rem}.card-img-top{width: 100%;max-height: 180px;object-fit: contain;padding: 30px}.card h2{font-size: 1rem}.card:hover{transform: scale(1.05);box-shadow: 0 10px 20px rgba(0, 0, 0, .12), 0 4px 8px rgba(0, 0, 0, .06)}.label-top{position: absolute;background-color: #8bc34a;color: #fff;top: 8px;right: 8px;padding: 5px 10px 5px 10px;font-size: .7rem;font-weight: 600;border-radius: 3px;text-transform: uppercase}.top-right{position: absolute;top: 24px;left: 24px;width: 90px;height: 90px;border-radius: 50%;font-size: 1rem;font-weight: 900;background: #ff5722;line-height: 90px;text-align: center;color: white}.top-right span{display: inline-block;vertical-align: middle}@media (max-width: 768px){.card-img-top{max-height: 250px}}.over-bg{background: rgba(53, 53, 53, 0.85);box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);backdrop-filter: blur(0.0px);-webkit-backdrop-filter: blur(0.0px);border-radius: 10px}.btn{font-size: 1rem;font-weight: 500;text-transform: uppercase;padding: 5px 50px 5px 50px}.box .btn{font-size: 1.5rem}@media (max-width: 1025px){.btn{padding: 5px 40px 5px 40px}}@media (max-width: 250px){.btn{padding: 5px 30px 5px 30px}}.btn-warning{background: none #f7810a;color: #ffffff;fill: #ffffff;border: none;text-decoration: none;outline: 0;box-shadow: -1px 6px 19px rgba(247, 129, 10, 0.25);border-radius: 100px}.btn-warning:hover{background: none #ff962b;color: #ffffff;box-shadow: -1px 6px 13px rgba(255, 150, 43, 0.35)}.bg-success{font-size: 1rem;background-color: #f7810a !important}.bg-danger{font-size: 1rem}.price-hp{font-size: 1rem;font-weight: 600;color: darkgray}.amz-hp{font-size: .7rem;font-weight: 600;color: darkgray}.fa-question-circle:before{color: darkgray}.fa-plus:before{color: darkgray}.box{border-radius: 1rem;background: #fff;box-shadow: 0 6px 10px rgb(0 0 0 / 8%), 0 0 6px rgb(0 0 0 / 5%);transition: .3s transform cubic-bezier(.155, 1.105, .295, 1.12), .3s box-shadow, .3s -webkit-transform cubic-bezier(.155, 1.105, .295, 1.12)}.box-img{max-width: 300px}.thumb-sec{max-width: 300px}@media (max-width: 576px){.box-img{max-width: 200px}.thumb-sec{max-width: 200px}}.inner-gallery{width: 60px;height: 60px;border: 1px solid #ddd;border-radius: 3px;margin: 1px;display: inline-block;overflow: hidden;-o-object-fit: cover;object-fit: cover}@media (max-width: 370px){.box .btn{padding: 5px 40px 5px 40px;font-size: 1rem}}
+.disclaimer{font-size: .9rem;color: darkgray}
+.related h3{font-weight: 900}
+footer{background: #212529;height: 80px;color: #fff}
+.container3 {
+  position: relative;
+
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  transform-style: preserve-3d;
+  perspective: 500px;
+  margin: auto;
+}
+.container3 .box3 {
+  position: relative;
+  width: 275px;
+  height: 275px;
+  background: #000;
+  transition: 0.5s;
+  transform-style: preserve-3d;
+  overflow: hidden;
+  margin-right: 15px;
+  margin-top: 45px;
+}
+.container3:hover .box3 {
+  transform: rotateY(25deg);
+}
+.containe3r .box3:hover ~ .box3 {
+  transform: rotateY(-25deg);
+}
+.container3 .box3:hover {
+  transform: rotateY(0deg) scale(1.25);
+  z-index: 1;
+  box-shadow: 0 25px 40px rgba(0,0,0,0.5);
+}
+.container3 .box3 .imgBx {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+.container3 .box3 .imgBx:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(180deg,#f00,#000);
+  z-index: 1;
+  opacity: 0;
+  transition: 0.5s;
+  mix-blend-mode: multiply;
+}
+.container3 .box3:hover .imgBx:before {
+  opacity: 1;
+}
+.container3 .box3 .imgBx .img4 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.container3 .box3 .content3 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  display: flex;
+  padding: 20px;
+  align-items: flex-end;
+  box-sizing: border-box;
+}
+.container3 .box3 .content3 h2 {
+  color: #fff;
+  transition: 0.5s;
+  text-transform: uppercase;
+  margin-bottom: 5px;
+  font-size: 20px;
+  transform: translateY(200px);
+  transition-delay: 0.3s;
+}
+.container3 .box3:hover .content3 h2 {
+  transform: translateY(0px);
+}
+.container3 .box3 .content3 p {
+  color: #fff;
+  transition: 0.5s;
+  font-size: 14px;
+  transform: translateY(200px);
+  transition-delay: 0.4s;
+}
+.container3 .box3:hover .content3 p {
+  transform: translateY(0px);
+}
 </style>
 
 <main  style="min-height: 100vh;padding-top: 3%;">
@@ -226,6 +328,127 @@ textarea#comment::placeholder {
             <h1>Archive</h1>
             
         </div>
+        <main> <div class="container-fluid bg-trasparent my-4 p-3 mt-2" style="position: relative;"> 
+            <div class="row row-cols-1 row-cols-xs-2 row-cols-sm-2 row-cols-lg-4 g-3">
+                 <div class="col"> <div class="card h-100 shadow-sm"> 
+                    <img src="https://www.freepnglogos.com/uploads/notebook-png/download-laptop-notebook-png-image-png-image-pngimg-2.png" class="card-img-top" alt="...">
+                     
+                    <div class="label-top shadow-sm">HP</div>
+                    <div class="card-body"> 
+                        <div class="clearfix mb-3">
+                             <span class="float-start badge rounded-pill bg-primary">HP</span> <span class="float-end price-hp">12354.00&euro;</span>
+                             </div> <h5 class="card-title">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Veniam quidem eaque ut eveniet aut quis rerum. Asperiores accusamus harum ducimus velit odit ut. Saepe, iste optio laudantium sed aliquam sequi.</h5>
+                              <div class="text-center my-4"> <a href="#" class="btn btn-warning">Check offer</a> 
+                            </div> 
+                            <div class="clearfix mb-1"> 
+                                <span class="float-start"><i class="far fa-question-circle"></i></span> 
+                                <span class="float-end"><i class="fas fa-plus"></i></span>
+                             </div>
+                        </div> 
+                    </div> 
+                </div> 
+                <div class="col mt-2">
+                     <div class="card h-100 shadow-sm">
+                         <img src="https://www.freepnglogos.com/uploads/notebook-png/notebook-laptop-png-images-you-can-download-mashtrelo-14.png" class="card-img-top" alt="...">
+                         <div class="label-top shadow-sm">THOSIBA</div>
+                         <div class="card-body">
+                             <div class="clearfix mb-3"> 
+                                <span class="float-start badge rounded-pill bg-success">12354.00&euro;</span> 
+                                <span class="float-start badge rounded-pill bg-primary">THOSIBA</span>
+                             </div> 
+                             <h5 class="card-title">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Veniam quidem eaque ut eveniet aut quis rerum. Asperiores accusamus harum ducimus velit odit ut. Saepe, iste optio laudantium sed aliquam sequi.</h5> 
+                             <div class="d-grid gap-2 my-4">
+                                 <a href="#" class="btn btn-warning">Check offer</a> 
+                                </div> 
+                                <div class="clearfix mb-1"> 
+                                    <span class="float-start"><i class="far fa-question-circle"></i></span> 
+                                    <span class="float-end"><i class="fas fa-plus"></i></span>
+                                 </div>
+                            </div>
+                         </div>
+                         </div> 
+                         <div class="col mt-2">
+                             <div class="card h-100 shadow-sm"> 
+                                <img src="https://www.freepnglogos.com/uploads/notebook-png/download-laptop-notebook-png-image-png-image-pngimg-2.png" class="card-img-top" alt="..."> 
+                                <div class="label-top shadow-sm">Asus Rog</div>
+                                 <div class="card-body"> <div class="clearfix mb-3">
+                                     <span class="float-start badge rounded-pill bg-success">12354.00&euro;</span>
+                                     <span class="float-start badge rounded-pill bg-primary">Asus</span>
+                                    </div>
+                                     <h5 class="card-title">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Veniam quidem eaque ut eveniet aut quis rerum. Asperiores accusamus harum ducimus velit odit ut. Saepe, iste optio laudantium sed aliquam sequi.</h5> 
+                                     <div class="text-center my-4">
+                                         <a href="#" class="btn btn-warning">Check offer</a>
+                                         </div> 
+                                         <div class="clearfix mb-1"> 
+                                            <span class="float-start"><i class="far fa-question-circle"></i></span> 
+                                            <span class="float-end"><i class="fas fa-plus"></i></span>
+                                         </div>
+                                         </div>
+                                         </div>
+                                         </div> 
+                                         <div class="col mt-2"> 
+                                            <div class="card h-100 shadow-sm"> 
+                                                <img src="https://www.freepnglogos.com/uploads/notebook-png/notebook-laptop-png-images-you-can-download-mashtrelo-14.png" class="card-img-top" alt="..."> 
+                                                <div class="label-top shadow-sm">DELL</div>
+                                                 <div class="card-body"> <div class="clearfix mb-3"> 
+                                                    <span class="float-start price-hp">12354.00&euro;</span> 
+                                                    <span class="float-start badge rounded-pill bg-primary">Dell</span>
+                                                    </span> 
+                                                </div> 
+                                                <h5 class="card-title">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Veniam quidem eaque ut eveniet aut quis rerum. Asperiores accusamus harum ducimus velit odit ut. Saepe, iste optio laudantium sed aliquam sequi.</h5>
+                                                 <div class="text-center my-4">
+                                                     <a href="#" class="btn btn-warning">Check offer</a>
+                                                    </div>
+                                                     <div class="clearfix mb-1"> 
+                                                        <span class="float-start"><i class="far fa-question-circle"></i></span>
+                                                         <span class="float-end"><i class="fas fa-plus"></i></span>
+                                                         </div>
+                                                         </div>
+                                                         </div>
+                                                         </div>
+                                                         </div>
+                                                         </div>
+                                                         </main>
+                                                         <div class="container3">
+                                                            <div class="box3">
+                                                              <div class="imgBx">
+                                                                <img class="img4" src="https://www.sagesoftware.co.in/wp-content/uploads/2022/05/crm-product-banner.jpg">
+                                                              </div>
+                                                              <div class="content3">
+                                                                <div>
+                                                                    <h2>CRM</h2>
+                                                                    <p>The goal is simple: Improve business relationships. A CRM system helps companies stay connected to customers
+                                                                    </p>
+                                                                </div>
+                                                              </div>
+                                                            </div>
+                                                            <div class="box3">
+                                                              <div class="imgBx">
+                                                                <img src="https://wp.static-cdn-shsp.com/wp-content/uploads/2020/08/shutterstock_444276529-scaled.jpg" width="100%" height="100%">
+                                                              </div>
+                                                              <div class="content3">
+                                                                <div>
+                                                                  <h2>Features</h2>
+                                                                  <p>A CRM solution opens up amazing opportunities for small businesses and large enterprises alike to thrive. Now more than ever, businesses need to expertly manage prospects and existing customers with great car</P>
+                                                                </div>
+                                                              </div>
+                                                            </div>
+                                                            <div class="box3">
+                                                              <div class="imgBx">
+                                                                <img src="https://www.wearecatalyst.co.uk/wp-content/uploads/2023/03/cat_blog-headers-latest_1000x706_CRM-1.jpg"width="100%" height="100%">
+                                                              </div>
+                                                              <div class="content3">
+                                                                <div>
+                                                                    <h2>Functionality</h2>
+                                                                    <p>Working with customers can be a challenging task. Keeping up with contacts, correctly diagnosing problems and ensuring satisfaction as well as positive interactions can feel like the weight of the world
+                                                                    </p>
+                                                                </div>
+                                                              </div>
+                                                            </div>
+                                                           
+                                                          </div>
+                                                          <br>
+                                                          <br>
     
        
 
@@ -233,17 +456,23 @@ textarea#comment::placeholder {
            
     <div class="row " style="gap: 10px;" >
         {% for i in arch %}
-        <div class="card-group"   >
-            <div class="card" style="border-radius:15px 50px 30px;border-color: black;background-color: rgb(137, 15, 15);" >
-              <img class="card-img-top" src="{{i.app.image.url}}" alt="Card image cap" style="border-radius:15px 50px 30px;">
-              <div class="card-body">
-                <h5 class="card-title"style="font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">{{i.app.name }}</h5>
-                <p class="card-text text-danger"><b style="font-size: 2rem;" class="text-warning">{{ i.app.price }}</b></p>
-                <button type="submit" class="btn btn-danger btn-block mt-4 mb-4 "><a href="{% url 'archiveremove' i.id  %}" style="color: white;text-decoration: none;">Remove</a></button>
-              </div>
+        <div class="col-sm-2 mb-3">
+            <div class="card"  draggable="true" ondragstart="drag(event)" ondragend="dragEnd(event)" data-app-id="{{ app.id }}" style="border-radius:15px 50px 30px;border-color: black; background-color: rgb(137, 15, 15);">
+                <div class="card1" >
+                    
+                   
+                    
+                  </div>
+                <div class="card-body" >
+                    <img class="card-img-top" src="{{i.app.image.url}}"alt="Card image cap">
+                    <h4 class="card-title text-warning" style="font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;">{{ i.app.name }}</h4>
+                    <hr style="border-color: rgb(167, 127, 7); ">
+                    <p class="card-text text-danger"><b style="font-size: 2rem;" class="text-warning">{{ i.app.price }}&euro;</b></p>
+                    <button type="submit" class="btn btn-danger btn-block mt-4 mb-4 "><a href="{% url 'archiveremove' i.id  %}" style="color: white;text-decoration: none;">Remove</a></button>
+                </div>
             </div>
         </div>
-          
+       
     {% endfor %}
     </div>
 </div>
@@ -283,35 +512,29 @@ textarea#comment::placeholder {
               <div class="location_text"><a href="#"><i class="fa fa-phone" aria-hidden="true"></i><span class="padding_left_15">(+71) 8522369417</span></a></div>
               <div class="location_text"><a href="#"><i class="fa fa-envelope" aria-hidden="true"></i><span class="padding_left_15">demo@gmail.com</span></a></div>
               <div class="social_icon">
-                 <ul>
-                  <a data-mdb-ripple-init class="btn btn-outline btn-floating m-1" href="#!" role="button"
-            ><i class="fab fa-facebook-f"></i
-          ></a>
+                 <ul> 
+                 <i class="fab fa-facebook-f text-white"></i
+          >
     
           <!-- Twitter -->
-          <a data-mdb-ripple-init class="btn btn-outline btn-floating m-1" href="#!" role="button"
-            ><i class="fab fa-twitter"></i
-          ></a>
+          <i class="fab fa-twitter text-white"></i
+          >
     
           <!-- Google -->
-          <a data-mdb-ripple-init class="btn btn-outline btn-floating m-1" href="#!" role="button"
-            ><i class="fab fa-google"></i
-          ></a>
+          <i class="fab fa-google text-white"></i
+          >
     
           <!-- Instagram -->
-          <a data-mdb-ripple-init class="btn btn-outline btn-floating m-1" href="#!" role="button"
-            ><i class="fab fa-instagram"></i
-          ></a>
+         <i class="fab fa-instagram text-white"></i
+          >
     
           <!-- Linkedin -->
-          <a data-mdb-ripple-init class="btn btn-outline btn-floating m-1" href="#!" role="button"
-            ><i class="fab fa-linkedin-in"></i
-          ></a>
+          <i class="fab fa-linkedin-in text-white"></i
+          >
     
           <!-- Github -->
-          <a data-mdb-ripple-init class="btn btn-outline btn-floating m-1" href="#!" role="button"
-            ><i class="fab fa-github"></i
-          ></a>
+          <i class="fab fa-github text-white"></i
+          >
                  </ul>
               </div>
            </div>

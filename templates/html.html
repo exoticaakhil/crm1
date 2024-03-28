@@ -1,0 +1,586 @@
+{% extends 'sidebar.html' %}
+{% block content %}
+{% load static %}
+<style>
+    .icon ul li{
+        margin: 60px 0;
+    }
+    body{
+        background-color: rgba(20, 188, 168, 0.2);
+    }
+    .card-body{
+        background-color: whitesmoke;
+        /* background-color: rgb(195, 250, 232); */
+        border-radius: 5px;
+    }
+    .cardbox{
+        /* border-radius: 15px; */
+        box-shadow: 2px 3px 3px grey;
+        padding: 5px;
+        background-color: #82f9f9;
+        
+        /* background-color: rgba(20, 188, 168, 0.2); */
+    }
+    
+    .cardbox:hover{
+        box-shadow: 2px 8px 20px black;
+        top: -5px;
+    }
+    .cardbox a {
+        text-decoration: none;
+        color: white;
+        background-color: rgb(71, 71, 239);
+    }
+    .cardbox a:hover{
+        
+        text-transform: uppercase;
+        box-shadow: 1px 2px 4px pink;
+        font-weight: 500;
+        
+    }
+
+    .draggable:active {
+        opacity: 0.4; /* Reduce opacity when dragging */
+        cursor: grabbing;
+    }
+    #archiveBox{
+        /* width: 100px;
+        height: 100px; */
+        transition: all 0.7s ease;
+        
+    }
+    /* #archiveBox.dragover{
+        height: 150px;
+        width: 150px;       
+        
+    } */
+    #archiveBox.drop{
+        height: 0px;
+        width: 0px;
+        transition: all 0.7s ease;
+    }
+    #archiveIcon { 
+        position: relative;   
+        justify-self: center;
+        align-self: center;
+        padding: 5% 4%;
+        border-radius: 50%;
+        border: 2px solid rgba(255, 68, 0, 0.6);
+        background-color: rgba(255, 68, 0, 0.2);
+        transition: top 0.7s ease; 
+        
+    }
+    #archiveBox.dragover #archiveIcon {
+    font-size: 2em; 
+    /* padding: 50% 35%; */
+    transition: font-size 0.7s ease; 
+    }
+    #archiveDiv{
+        display: none;               
+        transition: opacity 0.7s ease;
+    }
+
+
+/* graph bar */
+    .graph-container {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    width: 100%;
+    height: 400px; /* Adjust the height as needed */
+  }
+
+  .graph {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-right: 4%; /* Add spacing between graphs */
+    
+  }
+
+  .y-axis {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 400px;
+    color: gray;
+  }
+
+  .bar {
+    width: 20px; /* Adjust the width of the bars */
+    /* border-top-left-radius: 15px; */
+    /* border-top-right-radius: 15px; */
+    background-color: #007bff6e; /* Change the color of the bars if needed */
+    margin-bottom: 5px; /* Add spacing between bars */
+    
+  }
+
+  .x-axis {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    margin-top: 0; /* Add some margin between x-axis and bars */
+    color: gray;
+  }
+
+  /* ----------------------pie chart------------------ */
+
+  .pie-chart {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  position: relative;
+}
+
+.slice {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+#slice1 {
+  clip-path: polygon(50% 50%, 100% 50%, 100% 0%);
+  background-color: #ff6384; /* Red */
+  transform: rotate(0deg);
+}
+
+#slice2 {
+  clip-path: polygon(50% 50%, 100% 0%, 50% 0%);
+  background-color: #36a2eb; /* Blue */
+  transform: rotate(120deg);
+}
+
+#slice3 {
+  clip-path: polygon(50% 50%, 50% 0%, 0% 0%);
+  background-color: #ffce56; /* Yellow */
+  transform: rotate(240deg);
+}
+
+
+
+</style>
+
+<!-- <div class="mt-4" ><center><h1 style="display: block;" class="px-3 pb-4 border-bottom">Dashboard</h1></center></div> -->
+<div class="row m-2 mt-5">
+    <h5>Dashboard</h5> 
+    <ul class="ml-auto nav icon" style="font-size: large;" >
+        <li><i class="fa-solid fa-magnifying-glass"></i></li>
+        <li></li>
+        <li><i class="fa-regular fa-bell"></i></li>
+        <li><i class="fa-solid fa-gear"></i></li>
+        <li></li>
+    </ul> 
+</div>
+<div class="row m-2">
+    <div class="col-md-9 mr-3">
+        <div class="row">
+            <div class="col-md-4 my-3 p-2 mr-md-2" style="border-radius: 15px;background-color: white;box-shadow: 1px 2px 4px gray;"><div class="row"><div class="col-4"><img src="{% static 'images/pie-chart.png' %}" width="70" height="70"></div> <div class="col mt-2">Revenue <br> $45,876 <span class="ml-4 px-2 py-1" style="color: green;background-color: rgba(10, 220, 10, 0.37);font-size: small;border-radius: 15px;">+ 17.6%</span></div> </div></div>
+            <div class="col-md-3 my-3 p-2 mx-md-3" style="border-radius: 15px;background-color: white;box-shadow: 1px 2px 4px gray;"><div class="row"><div class="col-4"><img src="{% static 'images/box.png' %}" width="70" height="70"></div> <div class="col mt-2">Orders <br> 6586 <span class="ml-3 px-2 py-1" style="color: red;background-color: rgba(255, 0, 0, 0.3);font-size: small;border-radius: 15px;">- 0.6%</span></div> </div></div>
+            <div class="col-md-4 my-3 p-2 ml-md-2" style="border-radius: 15px;background-color: white;box-shadow: 1px 2px 4px gray;"><div class="row"><div class="col-4"><img src="{% static 'images/14.png' %}" width="70" height="70"></div> <div class="col mt-2">Customers <br> 4876 <span class="ml-5 px-2 py-1" style="color: red;background-color: rgba(255, 0, 0, 0.3);font-size: small;border-radius: 15px;">- 0.4%</span></div> </div></div>
+        </div>
+
+        
+        <div class="row my-3" style="border-radius: 15px;min-height: 10vh;background-color: white;box-shadow: 1px 2px 4px gray;">
+
+            
+
+        
+            <div class="col-md-3 my-3" style="border-radius: 15px;">                
+                    <h6 style="color: gray;">This Month</h6>                    
+                    <p style="font-size: x-large;font-weight: 500;">$48,996  <span style="color: green;font-size: small;">+ 12.74%</span></p> 
+                    <div class="row mt-2" style="height: 25%;">
+                        <div class="col border-bottom border-right"><p style="color: gray;">Orders</p><p style="font-weight: 500;">7,854</p></div>
+                        <div class="col border-bottom"><p style="color: gray;">Sales</p><p style="font-weight: 500;">18,567</p></div>
+                    </div>
+                    <div class="row" style="height: 25%;">
+                        <div class="col border-bottom border-right"><p style="color: gray;">Percentage</p><p style="font-weight: 500;">14.56%</p></div>
+                        <div class="col border-bottom"><p style="color: gray;">Custom...</p><p style="font-weight: 500;">26,905</p></div>
+                    </div><div class="row" style="height: 25%;">
+                        <div class="col border-right"><p style="color: gray;">Income</p><p style="font-weight: 500;">$79,354</p></div>
+                        <div class="col"><p style="color: gray;">Expense</p><p style="font-weight: 500;">$36,890</p></div>
+                    </div>
+            </div>
+            <div class="col-md-9 my-3 table-responsive" style="border-radius: 15px;">                
+                
+                <div class="graph-container">
+                    
+                    <div class="graph-line">
+                      <div class="y-axis">
+                        <div class="mark">100%</div>
+                        <div class="mark">80%</div>
+                        <div class="mark">60%</div>
+                        <div class="mark">40%</div>
+                        <div class="mark">20%</div>
+                        <div class="mark">0%</div>
+                      </div>
+                      
+                      
+                    </div>
+                    <div class="graph">
+                        <div class="bars ml-4">
+                          <div class="bar" style="height: 190px;">&nbsp;</div>
+                        </div>
+                      </div>
+                    
+                    <div class="graph">
+                      <div class="bars">
+                        <div class="bar" style="height: 240px;">&nbsp;</div>
+                      </div>
+                    </div>
+                    <div class="graph">
+                      <div class="bars">
+                        <div class="bar" style="height: 160px;">&nbsp;</div>
+                      </div>
+                    </div>
+                    <div class="graph">
+                      <div class="bars">
+                        <div class="bar" style="height: 210px;">&nbsp;</div>
+                      </div>
+                    </div>
+                    <div class="graph">
+                        <div class="bars">
+                          <div class="bar" style="height: 360px;">&nbsp;</div>
+                        </div>
+                    </div>
+                    <div class="graph">
+                        <div class="bars">
+                          <div class="bar" style="height: 210px;">&nbsp;</div>
+                        </div>
+                    </div>
+                    <div class="graph">
+                        <div class="bars">
+                          <div class="bar" style="height: 210px;">&nbsp;</div>
+                        </div>
+                    </div>
+                    <div class="graph">
+                        <div class="bars">
+                          <div class="bar" style="height: 210px;">&nbsp;</div>
+                        </div>
+                    </div>
+                    <div class="graph">
+                        <div class="bars">
+                          <div class="bar" style="height: 280px;">&nbsp;</div>
+                        </div>
+                    </div>
+                    <div class="graph">
+                        <div class="bars">
+                          <div class="bar" style="height: 110px;">&nbsp;</div>
+                        </div>
+                    </div>
+                    <div class="graph">
+                        <div class="bars">
+                          <div class="bar" style="height: 220px;">&nbsp;</div>
+                        </div>
+                    </div>
+                    <div class="graph">
+                        <div class="bars">
+                          <div class="bar" style="height: 300px;">&nbsp;</div>
+                        </div>
+                    </div>
+                    <div class="graph ">
+                        <div class="bars">
+                          <div class="bar" style="height: 40px;">&nbsp;</div>
+                        </div>
+                    </div>
+                    
+                    
+                  </div>
+
+                  <div class="x-axis">
+                    <div style="width: 7%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
+                    <div class="mark">Jan</div>
+                    <div class="mark">Feb</div>
+                    <div class="mark">Mar</div>
+                    <div class="mark">Apr</div>
+                    <div class="mark">May</div>
+                    <div class="mark">Jun</div>
+                    <div class="mark">Jul</div>
+                    <div class="mark">Aug</div>
+                    <div class="mark">Sep</div>
+                    <div class="mark">Oct</div>
+                    <div class="mark">Nov</div>
+                    <div class="mark">Dec</div>
+                  </div>
+                  
+            </div>
+        </div>
+        <div class="row my-3" style="border-radius: 15px;min-height: 10vh;">
+            <div class="col mt-3 mx-2" style="border-radius: 15px;background-color: white;box-shadow: 1px 2px 4px gray;">
+                <div class="row">
+                    <p class="ml-3 my-2" style="font-weight: 500;">User Activity</p>
+                </div>
+                <div class="row">
+                    <div class="col"><p style="color: gray;">This Month</p><p style="font-weight: 500;">19,453</p></div>
+                    <div class="col"></div>
+                </div>
+                <div class="row m-2 mb-5">
+                    <img class="ml-md-5" src="{% static 'images/16.png' %}" height="300" width="300" alt="">                      
+                </div>
+            </div>
+            <div class="col mt-3 mx-2" style="border-radius: 15px;background-color: white;box-shadow: 1px 2px 4px gray;">
+                <div class="row">
+                    <p class="ml-3 my-2" style="font-weight: 500;">Top Product</p> 
+                </div>
+                <div class="row">
+                    <table class="table m-2">
+                        <tr>
+                            <td><a class="btn btn-primary w-25 pr-4 text-white disabled" style="border-radius: 18px;">1</a></td>
+                            <td>Polo Green T-Shirt  <br>$ 28.87</td>
+                            <td>3.9k</td>
+                        </tr><tr>
+                            <td><a class="btn btn-primary w-25 pr-4 text-white disabled"  style="border-radius: 18px;">2</a></td>
+                            <td>Red Cap Unisex <br> $ 12.00 </td>
+                            <td>3.45k</td>
+                        </tr>
+                        <tr>
+                            <td><a class="btn btn-primary w-25 pr-4 text-white disabled" style="border-radius: 18px;">3</a></td>
+                            <td>Hoodie for men <br> $ 30.99</td>
+                            <td>3.67k</td>
+                        </tr>
+                        <tr>
+                            <td><a class="btn btn-primary w-25 pr-4 text-white disabled" style="border-radius: 18px;">4</a></td>
+                            <td>Nike shoes jordan <br> $ 259.99</td>
+                            <td>1.89k</td>
+                        </tr>
+                        <tr>
+                            <td><a class="btn btn-primary w-25 pr-4 text-white disabled" style="border-radius: 18px;">5</a></td>
+                            <td>Pocket T-shirt<br> $ 23.45</td>
+                            <td>2.78k</td>
+                        </tr>
+                        <tr>
+                            <td><a class="btn btn-primary w-25 pr-4 text-white disabled" style="border-radius: 18px;">6</a></td>
+                            <td>Tank Top for Men <br> $ 17.32</td>
+                            <td>1.23k</td>
+                        </tr>
+                        
+                    </table>
+                </div>
+            </div>
+            <!-- <div class="col-3 my-3" style="border-radius: 15px;border: 1px solid gray;background-color: white;box-shadow: 1px 2px 4px gray;"></div> -->
+        </div>
+    </div>
+    <div class="col-md mt-3 ml-3" style="border-radius: 15px;min-height: 80vh;background-color: white;box-shadow: 1px 2px 4px gray;">
+        <div class="row" style="min-height: 15vh;background-color: rgba(54, 220, 235, 0.749);border-top-left-radius: 15px;border-top-right-radius: 15px;"></div>
+        <div class="row d-flex justify-content-center" style="height: 10vh;">
+            <img src="{% static 'images/w2.jpg' %}" class="p-2" width="100" height="100" style="border-radius: 50px;bottom: 50px;position:relative;background-color: white;">
+            <h5>Jenifer Lopez</h5>
+        </div>
+        <div class="row border-bottom">
+            <div class="col border-right"><center><span style="font-weight: 500;">2,217</span> <br> <p style="color: gray;">Product</p></center></div>
+            <div class="col"><center><span style="font-weight: 500;">7.8K</span> <br> <p style="color: gray;">Followers</p></center></div>
+        </div>
+    </div>
+</div>
+
+<!-- cards -->
+<!-- <div class="row m-2" style="border-radius: 15px;box-shadow: 1px 2px 4px gray;background-color: white;"> -->
+
+    <!-- archive box -->
+<div class="row mt-3" id="archiveDiv"  >
+    <div id="archiveBox" class="col d-flex justify-content-center" >
+        <i id="archiveIcon" class="fa-solid fa-box-archive fa-fade fa-xl" style="color: orangered;"></i>
+    </div>
+</div>
+
+<!-- cards -->
+<div class="row my-3" >
+
+<div class=" col-md justify-content-center  py-5" style="display: flex;flex-wrap: wrap;gap: 20px;justify-content: start;">
+    <div class="card draggable cardbox" style="width: 18rem;" draggable="true">
+        
+        <div class="card-body" >
+            <img class="card-img-top"  draggable="false" height="200" src="{% static 'images/red_hoodie.webp' %}" alt="Card image cap">
+        <h5 class="card-title py-3 border-bottom " >&nbsp;Red Hoodie</h5>
+        <p class="card-text pt-2">Rating : <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i></p>
+        <p class="card-text pb-1" >Price &nbsp; : <span style="font-weight: 500;">$ 180</span></p>
+        <!-- <a href="#" class="">Purchase</a>  -->
+        </div>
+        <center> <a href="#" class="btn my-3 w-50 " >Purchase</a> </center>
+    </div>
+    <div class="card draggable cardbox" style="width: 18rem;" draggable="true">
+        <div class="card-body">
+            <img class="card-img-top"  draggable="false" height="200" src="{% static 'images/blue-denim.jpg' %}" alt="Card image cap">
+        <h5 class="card-title py-3 border-bottom ">&nbsp;Blue Denim Jacket</h5>
+        <p class="card-text pt-2">Rating : <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i></p>
+        <p class="card-text pb-1" >Price &nbsp; : <span style="font-weight: 500;">$ 230</span></p>
+        <!-- <a href="#" class="">Purchase</a>  -->
+        </div>
+        <center> <a href="#" class="btn my-3 w-50 " >Purchase</a> </center>
+    </div>
+    <div class="card draggable cardbox" style="width: 18rem;" draggable="true">
+        <div class="card-body">
+            <img class="card-img-top"  draggable="false" height="200" src="{% static 'images/polo2.webp' %}" alt="Card image cap">
+        <h5 class="card-title py-3 border-bottom ">&nbsp;Polo T-shirts</h5>
+        <p class="card-text pt-2">Rating : <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i></p>
+        <p class="card-text pb-1" >Price &nbsp; : <span style="font-weight: 500;">$ 80</span></p>
+        <!-- <a href="#" class="">Purchase</a>  -->
+        </div>
+        <center> <a href="#" class="btn my-3 w-50 " >Purchase</a> </center>
+    </div>
+    <div class="card draggable cardbox" style="width: 18rem;" draggable="true">
+        <div class="card-body">
+            <img class="card-img-top"  draggable="false" height="200" src="{% static 'images/slipfit-pant.jpg' %}" alt="Card image cap">
+        <h5 class="card-title py-3 border-bottom ">&nbsp;Slim Fit Pants</h5>
+        <p class="card-text pt-2">Rating : <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i></p>
+        <p class="card-text pb-1" >Price &nbsp; : <span style="font-weight: 500;">$ 140</span></p>
+        <!-- <a href="#" class="">Purchase</a>  -->
+        </div>
+        <center> <a href="#" class="btn my-3 w-50 " >Purchase</a> </center>
+    </div>
+    <div class="card draggable cardbox" style="width: 18rem;" draggable="true">
+        <div class="card-body">
+            <img class="card-img-top"  draggable="false" height="200" src="{% static 'images/nike.webp' %}" alt="Card image cap">
+        <h5 class="card-title py-3 border-bottom ">&nbsp;Nike Jordans</h5>
+        <p class="card-text pt-2">Rating : <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></p>
+        <p class="card-text pb-1" >Price &nbsp; : <span style="font-weight: 500;">$ 280</span></p>
+        <!-- <a href="#" class="">Purchase</a>  -->
+        </div>
+        <center> <a href="#" class="btn my-3 w-50 " >Purchase</a> </center>
+    </div>
+    <div class="card draggable cardbox" style="width: 18rem;" draggable="true">
+        <div class="card-body">
+            <img class="card-img-top"  draggable="false" height="200" src="{% static 'images/blazer2.jpg' %}" alt="Card image cap">
+        <h5 class="card-title py-3 border-bottom ">&nbsp;Blazers</h5>
+        <p class="card-text pt-2">Rating : <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i><i class="fa-regular fa-star"></i></p>
+        <p class="card-text pb-1" >Price &nbsp; : <span style="font-weight: 500;">$ 570</span></p>
+        <!-- <a href="#" class="btn btn-success">Purchase</a>  -->
+        </div>
+        <center> <a href="#" class="btn my-3 w-50 " >Purchase</a> </center>
+    </div>
+    
+</div>
+
+
+</div>
+<!-- </div> -->
+
+
+<script>
+    // let cards = document.getElementsByClassName('cardbox');
+    // let archiveBox = document.getElementById('archiveBox')
+    // let archiveDiv = document.getElementById('archiveDiv')
+    // for(let card of cards){
+    //     card.addEventListener("dragstart",function(e){
+    //         archiveDiv.style.display = 'block';
+    //         archiveDiv.style.opacity = '1';
+    //         let selected = e.target;
+
+            
+    //         archiveBox.addEventListener("dragover",function(e){
+    //             e.preventDefault();
+    //         });
+
+    //         // Add dragend event handler to reset selected card
+    //         card.addEventListener("dragend", function(e) {
+    //             archiveDiv.style.display = 'none';
+    //             selected = null;
+    //         });
+
+    //         archiveBox.addEventListener("drop",function(e){
+    //             // archiveBox.appendChild(selected);
+                
+
+    //             // aaaa
+    //             selected.style.display = 'none';
+    //             archiveDiv.style.display = 'none';
+    //             alert('successfull archived')
+    //             selected = null;
+    //         })
+
+    //     })
+    // }
+
+
+    let cards = document.getElementsByClassName('cardbox');
+    let archiveBox = document.getElementById('archiveBox');
+    let archiveDiv = document.getElementById('archiveDiv');
+
+    // Load archived cards from local storage
+    let archivedCards = JSON.parse(localStorage.getItem('archivedCards')) || [];
+
+    // Function to save archived cards to local storage
+    function saveToLocalStorage() {
+        localStorage.setItem('archivedCards', JSON.stringify(archivedCards));
+    }
+
+    // Function to handle dropping a card into the archive box
+    function handleDrop(selectedCard) {
+        selectedCard.style.display = 'none';
+        archiveDiv.style.display = 'none';
+        archivedCards.push(selectedCard.innerHTML); // Save card HTML content
+        saveToLocalStorage(); // Save to local storage
+        alert('Successfully archived');
+    }
+
+    for (let card of cards) {
+        card.addEventListener("dragstart", function(e) {
+            archiveDiv.style.display = 'block';
+            archiveDiv.style.opacity = '1';
+            let selected = e.target;
+
+            archiveBox.addEventListener("dragover", function(e) {
+                e.preventDefault();
+            });
+
+            card.addEventListener("dragend", function(e) {
+                archiveDiv.style.display = 'none';
+                selected = null;
+            });
+
+            archiveBox.addEventListener("drop", function(e) {
+                e.preventDefault();
+                handleDrop(selected);
+            });
+        });
+    }
+
+    function hideArchivedCards() {
+    // Load archived cards from local storage
+    let archivedCards = JSON.parse(localStorage.getItem('archivedCards')) || [];
+    
+    // Iterate through each card
+    for (let card of cards) {
+        // Check if the card's inner HTML content is in the archived cards
+        if (archivedCards.includes(card.innerHTML)) {
+            card.style.display = 'none'; // Hide the card if it's archived
+        }
+    }
+}
+
+// Call the function to hide archived cards when the page loads
+window.addEventListener('load', hideArchivedCards);
+
+
+
+
+
+
+    
+   // dragover archivebox style
+
+   let archiveIcon = document.getElementById('archiveIcon');
+
+    archiveBox.addEventListener('dragover', function(event) {
+        event.preventDefault(); // Prevent default behavior
+        archiveBox.classList.add('dragover'); // Add 'dragover' class
+        
+    });
+
+    archiveBox.addEventListener('dragleave', function(event) {
+        archiveBox.classList.remove('dragover'); // Remove 'dragover' class when leaving
+        
+    });
+
+    archiveBox.addEventListener('drop', function(event) {
+        archiveBox.classList.remove('dragover'); // Remove 'dragover' class when leaving
+        
+    });
+
+
+    
+
+    
+</script>
+
+{% endblock %}

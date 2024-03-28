@@ -90,8 +90,9 @@ def crmloginpage(request):
      currentuser1=request.user
      product1=App.objects.filter(user=None)
      product=App.objects.filter(user=currentuser1)
+     
      archived_app_ids = Archive.objects.values_list('app_id', flat=True)
-     return render(request,'crmloginpage.html',{'currentuser':currentuser,'product':product,'archived_app_ids': archived_app_ids,'product1':product1})
+     return render(request,'crmloginpage.html',{'currentuser':currentuser,'product':product,'archived_app_ids': archived_app_ids,'product1':product1,})
 
 @login_required(login_url='crmhome')
 def crmarchive(request):
